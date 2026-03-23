@@ -11,12 +11,12 @@ import sitemap from '@astrojs/sitemap';
  * - Dépôt USER.github.io (racine) : site = https://USER.github.io , base = '/'
  * - Domaine perso en racine : site = 'https://votre-domaine.tld' , base = '/'
  */
-const SITE = 'https://VOTRE_USER.github.io';
+const SITE = 'https://heavensal.github.io';
 /**
  * Nom du segment d’URL sous github.io (souvent = nom du dépôt).
  * Après « Use this template », remplacer `landing-page-template` par le nom de **votre** dépôt.
  */
-const BASE = '/landing-page-template/';
+const BASE = '/story-events-astro/';
 
 // https://astro.build/config
 export default defineConfig({
