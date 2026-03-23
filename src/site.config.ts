@@ -4,22 +4,22 @@
  */
 export const siteConfig = {
 	/** Nom affiché (balises, footer, Open Graph) */
-	name: '[Nom du site — à modifier]',
+	name: 'Story Events',
 	/** Phrase courte sous le titre principal */
-	tagline: '[Une phrase qui résume votre activité — à modifier]',
+	tagline: 'Personnel d’exception pour vos réceptions',
 	/** Meta description par défaut (~150–160 caractères pour le SEO) */
 	defaultDescription:
-		'[Description pour les moteurs de recherche : qui vous êtes, où, quoi. À modifier.]',
+		'Story Events place des équipes qualifiées — maîtres d’hôtel, serveurs — pour les traiteurs : mariages, cérémonies, conférences. Partenariat B2B, discrétion et excellence du service.',
 	lang: 'fr',
 	locale: 'fr_FR',
 	/** Couleur navigateur (mobile) */
-	themeColor: '#047857',
+	themeColor: '#070708',
 	contact: {
-		email: '[contact@exemple.fr — à modifier]',
-		phone: '[01 23 45 67 89 — à modifier]',
+		email: 'contact@story-events.fr',
+		phone: '01 23 45 67 89',
 	},
 	/** SIRET / identifiant légal affiché dans le footer et les mentions */
-	legalId: '[SIRET ou identifiant — à modifier]',
+	legalId: '[SIRET — à compléter]',
 	/** @handle sans @ ; laisser vide si pas de compte */
 	twitterHandle: '',
 	/**
