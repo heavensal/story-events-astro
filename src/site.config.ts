@@ -5,8 +5,6 @@
 export const siteConfig = {
 	/** Nom affiché (balises, footer, Open Graph) */
 	name: 'Story Events',
-	/** Phrase courte sous le titre principal */
-	tagline: 'Personnel d’exception pour vos réceptions',
 	/** Meta description par défaut (~150–160 caractères pour le SEO) */
 	defaultDescription:
 		'Story Events place des équipes qualifiées — maîtres d’hôtel, serveurs — pour les traiteurs : mariages, cérémonies, conférences. Partenariat B2B, discrétion et excellence du service.',

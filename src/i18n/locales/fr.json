@@ -1,0 +1,57 @@
+{
+  "LandingPage": {
+    "metaTitle": "Story Events — Personnel d’exception pour vos réceptions",
+    "metaDescription": "Story Events place des équipes qualifiées — maîtres d’hôtel, serveurs — pour les traiteurs : mariages, cérémonies, conférences. Partenariat B2B, discrétion et excellence du service."
+  },
+  "LanguageSwitcher": {
+    "ariaLabel": "Choisir la langue",
+    "labelFr": "FR",
+    "labelEn": "EN"
+  },
+  "HeroMinimal": {
+    "eyebrow": "Partenaire traiteurs & événementiel",
+    "tagline": "Personnel d’exception pour vos réceptions",
+    "taglineExtension": "équipes maîtres d’hôtel et service sur mesure pour vos réceptions, sans compromis sur l’image de votre maison.",
+    "ariaLabelHome": "Accueil",
+    "primaryCta": "Parler de votre besoin",
+    "secondaryCta": "L’offre B2B"
+  },
+  "LandingOffer": {
+    "title": "Votre sous-traitant service, au niveau de votre marque",
+    "intro": "Lorsque vous signez un mariage, une cérémonie ou une conférence, le service en salle porte votre réputation. Story Events constitue des équipes formées — maîtres d’hôtel, serveurs — qui prolongent votre exigence traiteur, avec discrétion et tenue irréprochable.",
+    "cardB2bTitle": "B2B uniquement",
+    "cardB2bBody": "Nous travaillons avec les entreprises du traiteur et de l’événementiel : vous gardez la relation client, nous déployons le personnel sur vos briefs.",
+    "cardQualityTitle": "Qualité constatée",
+    "cardQualityBody": "Recrutement sélectif, tenue adaptée à votre charte, attitude alignée sur le haut de gamme. Un interlocuteur dédié pour caler les effectifs et le déroulé.",
+    "cardReactivityTitle": "Réactivité",
+    "cardReactivityBody": "Mariages, cocktails d’entreprise, séminaires, galas : nous montons les équipes selon vos contraintes de planning et de volume."
+  },
+  "LandingRoles": {
+    "title": "Métiers & rôles",
+    "itemHostsLabel": "Maîtres d’hôtel",
+    "itemHostsDesc": "coordination du service, accueil des convives, respect du protocole.",
+    "itemServersLabel": "Serveurs / serveuses",
+    "itemServersDesc": "mise en place, service à l’assiette ou à la française, bar si besoin.",
+    "itemReinforcementsLabel": "Renforts ponctuels",
+    "itemReinforcementsDesc": "pics d’activité, grands formats, événements multi-sites."
+  },
+  "LandingEvents": {
+    "title": "Types d’événements",
+    "itemWeddings": "Mariages et cérémonies privées",
+    "itemCorporate": "Réceptions d’entreprise, conférences, séminaires",
+    "itemCocktails": "Cocktails, galas, lancements"
+  },
+  "LandingContact": {
+    "title": "Échanger sur un partenariat",
+    "intro": "Expliquez-nous vos formats habituels et vos exigences : nous revenons vers vous avec une proposition d’équipe et un cadre clair pour vos prochains événements.",
+    "emailCta": "Écrire à Story Events",
+    "legalPoliciesLink": "Mentions légales et politiques"
+  },
+  "SiteFooter": {
+    "tagline": "Personnel d’exception pour vos réceptions",
+    "navAriaLabel": "Mentions légales et politiques",
+    "linkLegalNotice": "Mentions légales",
+    "linkPrivacyPolicy": "Politique de confidentialité",
+    "linkTermsOfService": "Conditions générales"
+  }
+}

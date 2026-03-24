@@ -1,0 +1,57 @@
+{
+  "LandingPage": {
+    "metaTitle": "Story Events — Exceptional staff for your receptions",
+    "metaDescription": "Story Events provides qualified teams — maîtres d’hôtel, servers — for caterers: weddings, ceremonies, conferences. B2B partnership, discretion, and service excellence."
+  },
+  "LanguageSwitcher": {
+    "ariaLabel": "Choose language",
+    "labelFr": "FR",
+    "labelEn": "EN"
+  },
+  "HeroMinimal": {
+    "eyebrow": "Partner for caterers & events",
+    "tagline": "Exceptional staff for your receptions",
+    "taglineExtension": "maîtres d’hôtel teams and bespoke service for your events, with no compromise on your brand’s image.",
+    "ariaLabelHome": "Home",
+    "primaryCta": "Discuss your needs",
+    "secondaryCta": "B2B offering"
+  },
+  "LandingOffer": {
+    "title": "Your service subcontractor, at your brand’s level",
+    "intro": "When you sign a wedding, ceremony, or conference, front-of-house service carries your reputation. Story Events builds trained teams — maîtres d’hôtel, servers — who extend your catering standards, with discretion and impeccable presentation.",
+    "cardB2bTitle": "B2B only",
+    "cardB2bBody": "We work with catering and event businesses: you keep the client relationship, we deploy staff to your briefs.",
+    "cardQualityTitle": "Proven quality",
+    "cardQualityBody": "Selective recruitment, dress code aligned with your brand, attitude suited to high-end service. A dedicated contact to align headcount and flow.",
+    "cardReactivityTitle": "Responsiveness",
+    "cardReactivityBody": "Weddings, corporate cocktails, seminars, galas: we staff teams to your schedule and volume constraints."
+  },
+  "LandingRoles": {
+    "title": "Roles & positions",
+    "itemHostsLabel": "Maîtres d’hôtel",
+    "itemHostsDesc": "service coordination, guest welcome, protocol compliance.",
+    "itemServersLabel": "Servers",
+    "itemServersDesc": "setup, plated or French-style service, bar support if needed.",
+    "itemReinforcementsLabel": "Temporary reinforcements",
+    "itemReinforcementsDesc": "peak periods, large formats, multi-site events."
+  },
+  "LandingEvents": {
+    "title": "Event types",
+    "itemWeddings": "Weddings and private ceremonies",
+    "itemCorporate": "Corporate receptions, conferences, seminars",
+    "itemCocktails": "Cocktails, galas, launches"
+  },
+  "LandingContact": {
+    "title": "Discuss a partnership",
+    "intro": "Tell us about your usual formats and requirements: we’ll get back to you with a staffing proposal and a clear framework for your upcoming events.",
+    "emailCta": "Email Story Events",
+    "legalPoliciesLink": "Legal notices and policies"
+  },
+  "SiteFooter": {
+    "tagline": "Exceptional staff for your receptions",
+    "navAriaLabel": "Legal notices and policies",
+    "linkLegalNotice": "Legal notice",
+    "linkPrivacyPolicy": "Privacy policy",
+    "linkTermsOfService": "Terms of service"
+  }
+}

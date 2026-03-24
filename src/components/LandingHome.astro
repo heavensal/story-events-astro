@@ -1,0 +1,136 @@
+---
+import HeroMinimal from './HeroMinimal.astro';
+import SiteFooter from './SiteFooter.astro';
+import { getFixedT, type Locale } from '../i18n/i18n';
+import { pageHref, pageRoutes } from '../lib/paths';
+import { siteConfig } from '../site.config';
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getFixedT(locale);
+const { email } = siteConfig.contact;
+---
+
+<main>
+	<HeroMinimal
+		{locale}
+		eyebrow={t('HeroMinimal.eyebrow')}
+		tagline={t('HeroMinimal.tagline')}
+		taglineExtension={t('HeroMinimal.taglineExtension')}
+		ariaLabelHome={t('HeroMinimal.ariaLabelHome')}
+		primaryHref="#contact"
+		primaryLabel={t('HeroMinimal.primaryCta')}
+		secondaryHref="#offre"
+		secondaryLabel={t('HeroMinimal.secondaryCta')}
+	/>
+
+	<section id="offre" class="relative py-20 md:py-28 px-4 bg-surface-900 border-y border-white/[0.06]">
+		<div class="container mx-auto max-w-5xl">
+			<header class="text-center max-w-2xl mx-auto mb-16 md:mb-20">
+				<h2 class="font-display text-3xl md:text-4xl font-semibold text-silver-100 mb-4">
+					{t('LandingOffer.title')}
+				</h2>
+				<p class="text-silver-400 leading-relaxed">
+					{t('LandingOffer.intro')}
+				</p>
+			</header>
+			<div class="grid md:grid-cols-3 gap-6 md:gap-8">
+				<div class="rounded-sm border border-white/[0.08] bg-surface-850/80 p-8 backdrop-blur-sm">
+					<p class="font-display text-silver-300 text-xl mb-3">{t('LandingOffer.cardB2bTitle')}</p>
+					<p class="text-silver-500 text-sm leading-relaxed">
+						{t('LandingOffer.cardB2bBody')}
+					</p>
+				</div>
+				<div class="rounded-sm border border-white/[0.08] bg-surface-850/80 p-8 backdrop-blur-sm md:border-silver-400/25 md:shadow-[0_0_60px_-20px_rgba(200,204,212,0.15)]">
+					<p class="font-display text-silver-200 text-xl mb-3">{t('LandingOffer.cardQualityTitle')}</p>
+					<p class="text-silver-500 text-sm leading-relaxed">
+						{t('LandingOffer.cardQualityBody')}
+					</p>
+				</div>
+				<div class="rounded-sm border border-white/[0.08] bg-surface-850/80 p-8 backdrop-blur-sm">
+					<p class="font-display text-silver-300 text-xl mb-3">{t('LandingOffer.cardReactivityTitle')}</p>
+					<p class="text-silver-500 text-sm leading-relaxed">
+						{t('LandingOffer.cardReactivityBody')}
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-20 md:py-24 px-4 bg-surface-950">
+		<div class="container mx-auto max-w-5xl">
+			<div class="grid md:grid-cols-2 gap-14 md:gap-20 items-start">
+				<div>
+					<h2 class="font-display text-3xl md:text-4xl font-semibold text-silver-100 mb-6">{t('LandingRoles.title')}</h2>
+					<ul class="space-y-4 text-silver-400">
+						<li class="flex gap-3">
+							<span class="text-silver-300 shrink-0 mt-0.5" aria-hidden="true">◆</span>
+							<span
+								><strong class="text-silver-200 font-medium">{t('LandingRoles.itemHostsLabel')}</strong> — {
+									t('LandingRoles.itemHostsDesc')
+								}</span
+							>
+						</li>
+						<li class="flex gap-3">
+							<span class="text-silver-300 shrink-0 mt-0.5" aria-hidden="true">◆</span>
+							<span
+								><strong class="text-silver-200 font-medium">{t('LandingRoles.itemServersLabel')}</strong> — {
+									t('LandingRoles.itemServersDesc')
+								}</span
+							>
+						</li>
+						<li class="flex gap-3">
+							<span class="text-silver-300 shrink-0 mt-0.5" aria-hidden="true">◆</span>
+							<span
+								><strong class="text-silver-200 font-medium">{t('LandingRoles.itemReinforcementsLabel')}</strong> — {
+									t('LandingRoles.itemReinforcementsDesc')
+								}</span
+							>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<h2 class="font-display text-3xl md:text-4xl font-semibold text-silver-100 mb-6">{t('LandingEvents.title')}</h2>
+					<ul class="space-y-4 text-silver-400">
+						<li class="flex gap-3">
+							<span class="text-silver-300 shrink-0 mt-0.5" aria-hidden="true">◆</span>
+							<span>{t('LandingEvents.itemWeddings')}</span>
+						</li>
+						<li class="flex gap-3">
+							<span class="text-silver-300 shrink-0 mt-0.5" aria-hidden="true">◆</span>
+							<span>{t('LandingEvents.itemCorporate')}</span>
+						</li>
+						<li class="flex gap-3">
+							<span class="text-silver-300 shrink-0 mt-0.5" aria-hidden="true">◆</span>
+							<span>{t('LandingEvents.itemCocktails')}</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="contact" class="py-20 md:py-28 px-4 bg-surface-900 border-t border-white/[0.06]">
+		<div class="container mx-auto max-w-xl text-center">
+			<h2 class="font-display text-3xl md:text-4xl font-semibold text-silver-100 mb-4">{t('LandingContact.title')}</h2>
+			<p class="text-silver-400 mb-10 leading-relaxed">
+				{t('LandingContact.intro')}
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
+				<a
+					href={`mailto:${email}`}
+					class="inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-b from-silver-300 to-silver-400 text-surface-950 font-semibold rounded-sm hover:from-silver-200 hover:to-silver-300 transition-all"
+				>
+					{t('LandingContact.emailCta')}
+				</a>
+			</div>
+			<p class="text-silver-500 text-sm">
+				<a href={pageHref(pageRoutes.legalNotice)} class="link-silver">{t('LandingContact.legalPoliciesLink')}</a>
+			</p>
+		</div>
+	</section>
+	<SiteFooter {locale} />
+</main>

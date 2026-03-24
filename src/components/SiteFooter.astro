@@ -1,7 +1,14 @@
 ---
-import { pageHref } from '../lib/paths';
+import { getFixedT, type Locale } from '../i18n/i18n';
+import { pageHref, pageRoutes } from '../lib/paths';
 import { siteConfig } from '../site.config';
 
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getFixedT(locale);
 const { email, phone } = siteConfig.contact;
 const telDigits = phone.replace(/\D/g, '');
 ---
@@ -10,7 +17,7 @@ const telDigits = phone.replace(/\D/g, '');
 	<div class="container mx-auto max-w-4xl">
 		<div class="text-center text-sm mb-8">
 			<p class="font-display text-lg text-silver-200 mb-2">{siteConfig.name}</p>
-			<p class="text-silver-400 mb-3 max-w-md mx-auto">{siteConfig.tagline}</p>
+			<p class="text-silver-400 mb-3 max-w-md mx-auto">{t('SiteFooter.tagline')}</p>
 			<p class="mb-1">
 				<a href={`mailto:${email}`} class="link-silver">{email}</a>
 			</p>
@@ -22,15 +29,15 @@ const telDigits = phone.replace(/\D/g, '');
 				)}
 			</p>
 		</div>
-		<nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm mb-6" aria-label="Mentions légales et politiques">
-			<a href={pageHref('mentions-legales')} class="text-silver-500 hover:text-silver-200 transition-colors">
-				Mentions légales
+		<nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm mb-6" aria-label={t('SiteFooter.navAriaLabel')}>
+			<a href={pageHref(pageRoutes.legalNotice)} class="text-silver-500 hover:text-silver-200 transition-colors">
+				{t('SiteFooter.linkLegalNotice')}
 			</a>
-			<a href={pageHref('politique-confidentialite')} class="text-silver-500 hover:text-silver-200 transition-colors">
-				Politique de confidentialité
+			<a href={pageHref(pageRoutes.privacyPolicy)} class="text-silver-500 hover:text-silver-200 transition-colors">
+				{t('SiteFooter.linkPrivacyPolicy')}
 			</a>
-			<a href={pageHref('conditions-generales')} class="text-silver-500 hover:text-silver-200 transition-colors">
-				Conditions générales
+			<a href={pageHref(pageRoutes.termsOfService)} class="text-silver-500 hover:text-silver-200 transition-colors">
+				{t('SiteFooter.linkTermsOfService')}
 			</a>
 		</nav>
 		<p class="text-center text-silver-600 text-xs">{siteConfig.legalId}</p>

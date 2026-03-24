@@ -1,0 +1,40 @@
+---
+import { getFixedT, type Locale } from '../i18n/i18n';
+import { pageHref, pageRoutes } from '../lib/paths';
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getFixedT(locale);
+---
+
+<nav
+	class="absolute top-6 right-4 z-20 flex items-center gap-2 text-xs font-medium tracking-wide text-silver-500"
+	aria-label={t('LanguageSwitcher.ariaLabel')}
+>
+	{
+		locale === 'fr' ? (
+			<span class="text-silver-200" aria-current="true">
+				{t('LanguageSwitcher.labelFr')}
+			</span>
+		) : (
+			<a href={pageHref(pageRoutes.home)} class="hover:text-silver-200 transition-colors">
+				{t('LanguageSwitcher.labelFr')}
+			</a>
+		)
+	}
+	<span class="text-silver-600" aria-hidden="true">|</span>
+	{
+		locale === 'en' ? (
+			<span class="text-silver-200" aria-current="true">
+				{t('LanguageSwitcher.labelEn')}
+			</span>
+		) : (
+			<a href={pageHref(pageRoutes.englishHome)} class="hover:text-silver-200 transition-colors">
+				{t('LanguageSwitcher.labelEn')}
+			</a>
+		)
+	}
+</nav>

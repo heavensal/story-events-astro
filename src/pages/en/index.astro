@@ -1,0 +1,11 @@
+---
+import LandingHome from '../../components/LandingHome.astro';
+import Layout from '../../layouts/Layout.astro';
+import { getFixedT } from '../../i18n/i18n';
+
+const t = getFixedT('en');
+---
+
+<Layout lang="en" ogLocale="en_US" title={t('LandingPage.metaTitle')} description={t('LandingPage.metaDescription')}>
+	<LandingHome locale="en" />
+</Layout>
