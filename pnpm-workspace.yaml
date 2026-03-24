@@ -1,3 +1,7 @@
+# Champ obligatoire si ce fichier existe (sinon échec de `pnpm store path` / cache CI).
+packages:
+  - "."
+
 onlyBuiltDependencies:
   - esbuild
   - sharp
