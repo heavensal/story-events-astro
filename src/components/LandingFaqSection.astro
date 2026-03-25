@@ -1,0 +1,102 @@
+---
+import { getFixedT, type Locale } from "../i18n/i18n";
+
+interface Props {
+	locale: Locale;
+}
+
+interface ApiFaq {
+	answer?: string;
+	question?: string;
+}
+
+const { locale } = Astro.props;
+const t = getFixedT(locale);
+
+const fallbackItems = [
+	{
+		answer: t("LandingFaq.item1Answer"),
+		question: t("LandingFaq.item1Question"),
+	},
+	{
+		answer: t("LandingFaq.item2Answer"),
+		question: t("LandingFaq.item2Question"),
+	},
+];
+
+const getFaqItems = async () => {
+	try {
+		const response = await fetch("http://51.75.124.208:3001/api/v1/faqs", {
+			headers: {
+				Authorization: "Bearer 3J3jY5BkXVXp8swjVeXXhQxy",
+				Accept: "application/json",
+			},
+		});
+		const faqs = await response.json();
+		console.log("FAQs response.json()", faqs);
+		const rawItems = Array.isArray(faqs)
+			? faqs
+			: Array.isArray(faqs?.data)
+				? faqs.data
+				: [];
+		const items = rawItems
+			.filter(
+				(faq: ApiFaq) =>
+					typeof faq?.question === "string" &&
+					faq.question.length > 0 &&
+					typeof faq?.answer === "string" &&
+					faq.answer.length > 0,
+			)
+			.map((faq: ApiFaq) => ({
+				answer: faq.answer as string,
+				question: faq.question as string,
+			}));
+
+		return items.length ? items : fallbackItems;
+	} catch (error) {
+		console.error("Failed to load FAQs from API", error);
+		return fallbackItems;
+	}
+};
+
+const items = await getFaqItems();
+---
+
+<section
+	class="border-t border-white/6 bg-surface-950 px-4 py-20 md:py-24"
+	aria-labelledby="heading-faq"
+>
+	<div class="container mx-auto max-w-4xl">
+		<header class="mx-auto mb-12 max-w-2xl text-center md:mb-14">
+			<p class="mb-4 text-xs uppercase tracking-[0.35em] text-silver-400">
+				Story Events
+			</p>
+			<h2
+				id="heading-faq"
+				class="mb-4 font-display text-3xl font-semibold uppercase text-silver-100 md:text-4xl"
+			>
+				{t("LandingFaq.title")}
+			</h2>
+			<p class="leading-relaxed text-silver-400">{t("LandingFaq.intro")}</p>
+		</header>
+		<div class="space-y-4">
+			{
+				items.map((item) => (
+					<details class="group rounded-sm border border-white/8 bg-surface-850/80 backdrop-blur-sm">
+						<summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-left marker:hidden">
+							<span class="font-display text-xl text-silver-200">
+								{item.question}
+							</span>
+							<span class="text-2xl text-silver-400 transition-transform group-open:rotate-45">
+								+
+							</span>
+						</summary>
+						<p class="px-6 pb-6 text-sm leading-relaxed text-silver-400">
+							{item.answer}
+						</p>
+					</details>
+				))
+			}
+		</div>
+	</div>
+</section>

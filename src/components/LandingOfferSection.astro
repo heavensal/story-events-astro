@@ -1,5 +1,7 @@
 ---
 import { getFixedT, type Locale } from "../i18n/i18n";
+import weddingGlassesImage from "../../assets/images/wedding_glasses.jpg";
+import weddingTableImage from "../../assets/images/wedding_table.jpg";
 
 interface Props {
 	locale: Locale;
@@ -10,21 +12,17 @@ const t = getFixedT(locale);
 
 const cards = [
 	{
-		body: t("LandingOffer.cardB2bBody"),
-		id: "offer-card-b2b-title",
-		title: t("LandingOffer.cardB2bTitle"),
+		body: t("LandingOffer.cardExpertiseBody"),
+		className: "border-white/8 bg-surface-850/85",
+		id: "offer-card-expertise-title",
+		title: t("LandingOffer.cardExpertiseTitle"),
 	},
 	{
-		body: t("LandingOffer.cardQualityBody"),
+		body: t("LandingOffer.cardMaitreHotelBody"),
 		className:
-			"rounded-sm border border-white/8 bg-surface-850/80 p-8 backdrop-blur-sm md:border-silver-400/25 md:shadow-[0_0_60px_-20px_rgba(200,204,212,0.15)]",
-		id: "offer-card-quality-title",
-		title: t("LandingOffer.cardQualityTitle"),
-	},
-	{
-		body: t("LandingOffer.cardReactivityBody"),
-		id: "offer-card-reactivity-title",
-		title: t("LandingOffer.cardReactivityTitle"),
+			"border-silver-400/25 bg-surface-850/90 shadow-[0_0_60px_-20px_rgba(200,204,212,0.15)]",
+		id: "offer-card-maitre-hotel-title",
+		title: t("LandingOffer.cardMaitreHotelTitle"),
 	},
 ];
 ---
@@ -44,21 +42,53 @@ const cards = [
 			</h2>
 			<p class="leading-relaxed text-silver-400">{t("LandingOffer.intro")}</p>
 		</header>
-		<div class="grid gap-6 md:grid-cols-3 md:gap-8">
-			{
-				cards.map((card) => (
-					<article
-						class={card.className ??
-							"rounded-sm border border-white/8 bg-surface-850/80 p-8 backdrop-blur-sm"}
-						aria-labelledby={card.id}
-					>
-						<p id={card.id} class="mb-3 font-display text-xl text-silver-300">
-							{card.title}
-						</p>
-						<p class="text-sm leading-relaxed text-silver-500">{card.body}</p>
-					</article>
-				))
-			}
+		<div class="grid gap-6 lg:grid-cols-12 lg:grid-rows-[minmax(18rem,1fr)_minmax(16rem,auto)]">
+			<figure
+				class="group relative min-h-80 overflow-hidden rounded-sm border border-white/8 bg-surface-950 lg:col-span-7 lg:row-span-2"
+			>
+				<img
+					src={weddingTableImage.src}
+					alt={t("LandingOffer.imageTableAlt")}
+					class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+				/>
+				<div class="absolute inset-0 bg-linear-to-t from-surface-950/85 via-surface-950/25 to-transparent"></div>
+				<figcaption class="absolute bottom-0 left-0 right-0 p-6 text-left">
+					<p class="text-xs uppercase tracking-[0.35em] text-silver-400">
+						Story Events
+					</p>
+				</figcaption>
+			</figure>
+
+			<article
+				class={`rounded-sm border p-8 backdrop-blur-sm lg:col-span-5 ${cards[0].className}`}
+				aria-labelledby={cards[0].id}
+			>
+				<p id={cards[0].id} class="mb-3 font-display text-2xl text-silver-200">
+					{cards[0].title}
+				</p>
+				<p class="text-sm leading-relaxed text-silver-400">{cards[0].body}</p>
+			</article>
+
+			<figure
+				class="relative min-h-64 overflow-hidden rounded-sm border border-silver-400/20 bg-surface-950 lg:col-span-4 lg:translate-x-6"
+			>
+				<img
+					src={weddingGlassesImage.src}
+					alt={t("LandingOffer.imageGlassesAlt")}
+					class="absolute inset-0 h-full w-full object-cover"
+				/>
+				<div class="absolute inset-0 bg-linear-to-t from-surface-950/75 via-transparent to-transparent"></div>
+			</figure>
+
+			<article
+				class={`rounded-sm border p-8 backdrop-blur-sm lg:col-span-8 lg:-translate-y-8 ${cards[1].className}`}
+				aria-labelledby={cards[1].id}
+			>
+				<p id={cards[1].id} class="mb-3 font-display text-2xl text-silver-100">
+					{cards[1].title}
+				</p>
+				<p class="text-sm leading-relaxed text-silver-400">{cards[1].body}</p>
+			</article>
 		</div>
 	</div>
 </section>
