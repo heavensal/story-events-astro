@@ -8,7 +8,6 @@ interface Props {
 	eyebrow: string;
 	tagline: string;
 	taglineExtension: string;
-	ariaLabelHome: string;
 	primaryHref: string;
 	primaryLabel: string;
 	secondaryHref?: string;
@@ -20,7 +19,6 @@ const {
 	eyebrow,
 	tagline,
 	taglineExtension,
-	ariaLabelHome,
 	primaryHref,
 	primaryLabel,
 	secondaryHref,
@@ -30,7 +28,7 @@ const {
 
 <section
 	class="relative min-h-[88vh] w-full flex flex-col justify-center overflow-hidden px-4 py-28 bg-surface-950 text-silver-100"
-	aria-label={ariaLabelHome}
+	aria-labelledby="hero-brand-heading"
 >
 	<LanguageSwitcher {locale} />
 	<div
@@ -41,11 +39,11 @@ const {
 		class="pointer-events-none absolute inset-0 opacity-[0.06] mix-blend-overlay bg-[url('data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20256%20256%22%3E%3Cfilter%20id=%22n%22%3E%3CfeTurbulence%20type=%22fractalNoise%22%20baseFrequency=%220.9%22%20numOctaves=%224%22%20stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect%20width=%22100%25%22%20height=%22100%25%22%20filter=%22url(%23n)%22/%3E%3C/svg%3E')]"
 		aria-hidden="true"
 	/>
-	<div class="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-silver-400/40 to-transparent" aria-hidden="true" />
+	<div class="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-silver-400/40 to-transparent" aria-hidden="true" />
 
 	<div class="relative z-10 container mx-auto max-w-3xl text-center">
 		<p class="font-display text-silver-400 tracking-[0.35em] text-xs uppercase mb-6">{eyebrow}</p>
-		<h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.1] mb-6 text-silver-100">
+		<h1 id="hero-brand-heading" class="font-display text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.1] mb-6 text-silver-100">
 			{siteConfig.name}
 		</h1>
 		<p class="text-lg md:text-xl text-silver-300/95 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
@@ -55,14 +53,14 @@ const {
 		<div class="flex flex-col sm:flex-row gap-4 justify-center">
 			<a
 				href={primaryHref}
-				class="inline-flex items-center justify-center px-9 py-4 bg-gradient-to-b from-silver-300 to-silver-400 text-surface-950 font-semibold tracking-wide rounded-sm hover:from-silver-200 hover:to-silver-300 transition-all shadow-[0_0_40px_-12px_rgba(200,204,212,0.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-silver-300 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-950"
+				class="inline-flex items-center justify-center px-9 py-4 bg-linear-to-b from-silver-300 to-silver-400 text-surface-950 font-semibold tracking-wide rounded-sm hover:from-silver-200 hover:to-silver-300 transition-all shadow-[0_0_40px_-12px_rgba(200,204,212,0.45)] focus-ring"
 			>
 				{primaryLabel}
 			</a>
 			{secondaryHref && secondaryLabel && (
 				<a
 					href={secondaryHref}
-					class="inline-flex items-center justify-center px-9 py-4 border border-silver-500/60 text-silver-200 font-medium rounded-sm hover:border-silver-300 hover:bg-white/[0.04] transition-colors"
+					class="inline-flex items-center justify-center px-9 py-4 border border-silver-500/60 text-silver-200 font-medium rounded-sm hover:border-silver-300 hover:bg-white/4 transition-colors focus-ring"
 				>
 					{secondaryLabel}
 				</a>

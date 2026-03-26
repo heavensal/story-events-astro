@@ -13,7 +13,7 @@ const { email, phone } = siteConfig.contact;
 const telDigits = phone.replace(/\D/g, '');
 ---
 
-<footer class="bg-surface-950 text-silver-500 py-12 px-4 border-t border-white/[0.06]" role="contentinfo">
+<footer class="bg-surface-950 text-silver-500 py-12 px-4 border-t border-white/6" role="contentinfo">
 	<div class="container mx-auto max-w-4xl">
 		<div class="text-center text-sm mb-8">
 			<p class="font-display text-lg text-silver-200 mb-2">{siteConfig.name}</p>
@@ -30,13 +30,13 @@ const telDigits = phone.replace(/\D/g, '');
 			</p>
 		</div>
 		<nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm mb-6" aria-label={t('SiteFooter.navAriaLabel')}>
-			<a href={pageHref(pageRoutes.legalNotice)} class="text-silver-500 hover:text-silver-200 transition-colors">
+			<a href={pageHref(pageRoutes.legalNotice)} class="link-silver">
 				{t('SiteFooter.linkLegalNotice')}
 			</a>
-			<a href={pageHref(pageRoutes.privacyPolicy)} class="text-silver-500 hover:text-silver-200 transition-colors">
+			<a href={pageHref(pageRoutes.privacyPolicy)} class="link-silver">
 				{t('SiteFooter.linkPrivacyPolicy')}
 			</a>
-			<a href={pageHref(pageRoutes.termsOfService)} class="text-silver-500 hover:text-silver-200 transition-colors">
+			<a href={pageHref(pageRoutes.termsOfService)} class="link-silver">
 				{t('SiteFooter.linkTermsOfService')}
 			</a>
 		</nav>

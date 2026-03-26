@@ -16,11 +16,17 @@ const t = getFixedT(locale);
 >
 	{
 		locale === 'fr' ? (
-			<span class="text-silver-200" aria-current="true">
+			<span class="rounded-sm px-1.5 py-0.5 text-silver-200" aria-current="true" lang="fr">
 				{t('LanguageSwitcher.labelFr')}
 			</span>
 		) : (
-			<a href={pageHref(pageRoutes.home)} class="hover:text-silver-200 transition-colors">
+			<a
+				href={pageHref(pageRoutes.home)}
+				hreflang="fr"
+				lang="fr"
+				title={t('LanguageSwitcher.titleFr')}
+				class="rounded-sm px-1.5 py-0.5 transition-colors hover:text-silver-200 focus-ring"
+			>
 				{t('LanguageSwitcher.labelFr')}
 			</a>
 		)
@@ -28,11 +34,17 @@ const t = getFixedT(locale);
 	<span class="text-silver-600" aria-hidden="true">|</span>
 	{
 		locale === 'en' ? (
-			<span class="text-silver-200" aria-current="true">
+			<span class="rounded-sm px-1.5 py-0.5 text-silver-200" aria-current="true" lang="en">
 				{t('LanguageSwitcher.labelEn')}
 			</span>
 		) : (
-			<a href={pageHref(pageRoutes.englishHome)} class="hover:text-silver-200 transition-colors">
+			<a
+				href={pageHref(pageRoutes.englishHome)}
+				hreflang="en"
+				lang="en"
+				title={t('LanguageSwitcher.titleEn')}
+				class="rounded-sm px-1.5 py-0.5 transition-colors hover:text-silver-200 focus-ring"
+			>
 				{t('LanguageSwitcher.labelEn')}
 			</a>
 		)

@@ -2,10 +2,30 @@
 import LandingHome from '../../components/LandingHome.astro';
 import Layout from '../../layouts/Layout.astro';
 import { getFixedT } from '../../i18n/i18n';
+import { buildLandingJsonLd, getAlternateLanguageUrls } from '../../lib/seo';
 
 const t = getFixedT('en');
+const alternates = getAlternateLanguageUrls(Astro.site);
+const jsonLd = alternates ? buildLandingJsonLd(alternates) : undefined;
+const alternateLanguages = alternates
+	? [
+			{ hreflang: 'fr', href: alternates.fr },
+			{ hreflang: 'en', href: alternates.en },
+			{ hreflang: 'x-default', href: alternates.fr },
+		]
+	: undefined;
 ---
 
-<Layout lang="en" ogLocale="en_US" title={t('LandingPage.metaTitle')} description={t('LandingPage.metaDescription')}>
+<Layout
+	lang="en"
+	ogLocale="en_US"
+	ogLocaleAlternate="fr_FR"
+	title={t('LandingPage.metaTitle')}
+	description={t('LandingPage.metaDescription')}
+	skipToContentLabel={t('Layout.skipToContent')}
+	ogImageAlt={t('Layout.ogImageAlt')}
+	alternateLanguages={alternateLanguages}
+	jsonLd={jsonLd}
+>
 	<LandingHome locale="en" />
 </Layout>

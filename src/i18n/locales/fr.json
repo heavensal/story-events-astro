@@ -1,4 +1,8 @@
 {
+  "Layout": {
+    "skipToContent": "Aller au contenu principal",
+    "ogImageAlt": "Story Events — personnel traiteur et événementiel"
+  },
   "LandingPage": {
     "metaTitle": "Story Events — Personnel d’exception pour vos réceptions",
     "metaDescription": "Story Events place des équipes qualifiées — maîtres d’hôtel, serveurs — pour les traiteurs : mariages, cérémonies, conférences. Partenariat B2B, discrétion et excellence du service."
@@ -6,13 +10,14 @@
   "LanguageSwitcher": {
     "ariaLabel": "Choisir la langue",
     "labelFr": "FR",
-    "labelEn": "EN"
+    "labelEn": "EN",
+    "titleFr": "Afficher le site en français",
+    "titleEn": "Show site in English"
   },
   "HeroMinimal": {
     "eyebrow": "Partenaire traiteurs & événementiel",
     "tagline": "Personnel d’exception pour vos réceptions",
     "taglineExtension": "équipes maîtres d’hôtel et service sur mesure pour vos réceptions, sans compromis sur l’image de votre maison.",
-    "ariaLabelHome": "Accueil",
     "primaryCta": "Parler de votre besoin",
     "secondaryCta": "L’offre B2B"
   },

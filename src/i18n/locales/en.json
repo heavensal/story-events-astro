@@ -1,4 +1,8 @@
 {
+  "Layout": {
+    "skipToContent": "Skip to main content",
+    "ogImageAlt": "Story Events — catering and event staffing"
+  },
   "LandingPage": {
     "metaTitle": "Story Events — Exceptional staff for your receptions",
     "metaDescription": "Story Events provides qualified teams — maîtres d’hôtel, servers — for caterers: weddings, ceremonies, conferences. B2B partnership, discretion, and service excellence."
@@ -6,13 +10,14 @@
   "LanguageSwitcher": {
     "ariaLabel": "Choose language",
     "labelFr": "FR",
-    "labelEn": "EN"
+    "labelEn": "EN",
+    "titleFr": "Show site in French",
+    "titleEn": "Show site in English"
   },
   "HeroMinimal": {
     "eyebrow": "Partner for caterers & events",
     "tagline": "Exceptional staff for your receptions",
     "taglineExtension": "maîtres d’hôtel teams and bespoke service for your events, with no compromise on your brand’s image.",
-    "ariaLabelHome": "Home",
     "primaryCta": "Discuss your needs",
     "secondaryCta": "B2B offering"
   },

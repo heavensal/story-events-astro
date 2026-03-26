@@ -20,6 +20,11 @@ export const siteConfig = {
 	legalId: '[SIRET — à compléter]',
 	/** @handle sans @ ; laisser vide si pas de compte */
 	twitterHandle: '',
+	/** Profils publics (JSON-LD `sameAs`) : LinkedIn, etc. */
+	sameAs: [] as readonly string[],
+	/** Dimensions OG si vous définissez `ogImageUrl` (SEO / réseaux). */
+	ogImageWidth: 1200,
+	ogImageHeight: 630,
 	/**
 	 * URL absolue d’une image Open Graph (1200×630 recommandé), ou '' pour ne pas l’émettre.
 	 * Après déploiement, peut être `https://votre-domaine/og-image.jpg` si vous ajoutez le fichier dans public/.
