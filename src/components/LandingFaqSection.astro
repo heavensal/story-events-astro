@@ -12,6 +12,8 @@ interface ApiFaq {
 
 const { locale } = Astro.props;
 const t = getFixedT(locale);
+const faqApiUrl = import.meta.env.FAQ_API_URL;
+const faqApiToken = import.meta.env.FAQ_API_TOKEN;
 
 const fallbackItems = [
 	{
@@ -26,14 +28,20 @@ const fallbackItems = [
 
 const getFaqItems = async () => {
 	try {
-		const response = await fetch("http://51.75.124.208:3001/api/v1/faqs", {
+		if (!faqApiUrl || !faqApiToken) {
+			return fallbackItems;
+		}
+		const parsedUrl = new URL(faqApiUrl);
+		if (parsedUrl.protocol !== "https:") {
+			return fallbackItems;
+		}
+		const response = await fetch(parsedUrl.toString(), {
 			headers: {
-				Authorization: "Bearer 3J3jY5BkXVXp8swjVeXXhQxy",
+				Authorization: `Bearer ${faqApiToken}`,
 				Accept: "application/json",
 			},
 		});
 		const faqs = await response.json();
-		console.log("FAQs response.json()", faqs);
 		const rawItems = Array.isArray(faqs)
 			? faqs
 			: Array.isArray(faqs?.data)
