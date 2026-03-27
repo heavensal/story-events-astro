@@ -2,10 +2,11 @@
 import HeroMinimal from "./HeroMinimal.astro";
 import LandingContactSection from "./LandingContactSection.astro";
 import LandingEventsSection from "./LandingEventsSection.astro";
+import LandingFaqSection from "./LandingFaqSection.astro";
 import LandingInternationalSection from "./LandingInternationalSection.astro";
 import LandingOfferSection from "./LandingOfferSection.astro";
 import LandingRolesSection from "./LandingRolesSection.astro";
-import Services from "./Services.astro";
+import LandingServicesSection from "./LandingServicesSection.astro";
 import SiteFooter from "./SiteFooter.astro";
 import { getFixedT, type Locale } from "../i18n/i18n";
 
@@ -29,7 +30,7 @@ const t = getFixedT(locale);
 		secondaryLabel={t("HeroMinimal.secondaryCta")}
 	/>
 	<LandingOfferSection {locale} />
-	<Services {locale} />
+	<LandingServicesSection {locale} />
 
 	<div class="py-20 md:py-24 px-4 bg-surface-950">
 		<div
@@ -40,6 +41,7 @@ const t = getFixedT(locale);
 		</div>
 	</div>
 	<LandingInternationalSection {locale} />
+	<LandingFaqSection {locale} />
 	<LandingContactSection {locale} />
 </main>
 <SiteFooter {locale} />

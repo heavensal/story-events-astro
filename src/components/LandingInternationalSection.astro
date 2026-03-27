@@ -14,7 +14,7 @@ const t = getFixedT(locale);
 	class="border-t border-white/6 bg-surface-900 px-4 py-20 md:py-24"
 	aria-labelledby="heading-international"
 >
-	<div class="container mx-auto text-center">
+	<div class="container mx-auto max-w-5xl text-center">
 		<p class="mb-4 text-xs uppercase tracking-[0.35em] text-silver-400">
 			Story Events
 		</p>
@@ -24,20 +24,36 @@ const t = getFixedT(locale);
 		>
 			{t("LandingInternational.title")}
 		</h2>
-
-		<div class="grid grid-cols-1 md:grid-cols-2">
-
-			<div class="p-0.5 mb-8 bg-linear-to-br from-silver-300 via-silver-500 to-silver-300">
+		<div class="relative mx-auto mt-10 max-w-6xl lg:min-h-[32rem]">
+			<figure
+				class="group relative overflow-hidden rounded-sm border border-white/8 bg-surface-950 lg:ml-auto lg:w-[78%]"
+			>
 				<img
 					src={mapImage.src}
-					alt=""
-					class="mx-auto w-full max-w-3xl object-cover"
+					alt={t("LandingInternational.imageAlt")}
+					class="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
 				/>
-			</div>
-			<p class="mx-auto max-w-3xl text-lg place-content-center leading-relaxed text-silver-300 md:text-xl">
-				{t("LandingInternational.content")}
-			</p>
-
+				<div class="absolute inset-0 bg-linear-to-t from-surface-950/80 via-surface-950/15 to-transparent"></div>
+				<figcaption class="absolute bottom-0 left-0 right-0 p-6 text-left">
+					<p class="text-xs uppercase tracking-[0.35em] text-silver-400">
+						Story Events
+					</p>
+				</figcaption>
+			</figure>
+			<article
+				class="relative z-10 mt-6 rounded-sm border border-silver-400/25 bg-surface-850/92 p-8 text-left shadow-[0_0_60px_-20px_rgba(200,204,212,0.15)] backdrop-blur-sm lg:absolute lg:bottom-10 lg:left-0 lg:mt-0 lg:max-w-md"
+			>
+				<p class="mb-4 text-xs uppercase tracking-[0.35em] text-silver-400">
+					Story Events
+				</p>
+				<p class="text-lg leading-relaxed text-silver-300 md:text-xl">
+					{t("LandingInternational.content")}
+				</p>
+			</article>
+			<div
+				class="pointer-events-none absolute -bottom-4 right-6 hidden h-24 w-24 border border-silver-400/20 lg:block"
+				aria-hidden="true"
+			></div>
 		</div>
 	</div>
 </section>

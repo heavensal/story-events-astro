@@ -1,0 +1,72 @@
+---
+import { getFixedT, type Locale } from "../i18n/i18n";
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getFixedT(locale);
+const faqKeys = ["item1", "item2", "item3", "item4"] as const;
+const items = faqKeys
+	.map((itemKey) => {
+		const questionKey = `LandingFaq.${itemKey}Question`;
+		const answerKey = `LandingFaq.${itemKey}Answer`;
+		const question = t(questionKey);
+		const answer = t(answerKey);
+		if (question === questionKey || answer === answerKey) return null;
+		return { answer, question };
+	})
+	.filter((item): item is { answer: string; question: string } => item !== null);
+---
+
+<section
+	id="faq"
+	class="border-t border-white/6 bg-surface-950 px-4 py-20 md:py-24"
+	aria-labelledby="heading-faq"
+>
+	<div class="container mx-auto max-w-4xl">
+		<header class="mx-auto mb-12 max-w-2xl text-center md:mb-14">
+			<p class="mb-4 text-xs uppercase tracking-[0.35em] text-silver-400">
+				Story Events
+			</p>
+			<h2
+				id="heading-faq"
+				class="mb-4 font-display text-3xl font-semibold uppercase text-silver-100 md:text-4xl"
+			>
+				{t("LandingFaq.title")}
+			</h2>
+			<p class="leading-relaxed text-silver-400">{t("LandingFaq.intro")}</p>
+		</header>
+		<div class="space-y-4">
+			{
+				items.map((item) => (
+					<details class="group rounded-sm border border-white/8 bg-surface-850/80 backdrop-blur-sm">
+						<summary
+							class="focus-ring flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-left marker:hidden"
+						>
+							<span class="font-display text-xl text-silver-200">
+								{item.question}
+							</span>
+							<span class="text-2xl text-silver-400 transition-transform group-open:rotate-45">
+								+
+							</span>
+						</summary>
+						<p class="px-6 pb-6 text-sm leading-relaxed text-silver-400">
+							{item.answer}
+						</p>
+					</details>
+				))
+			}
+		</div>
+		<div class="mt-10 text-center">
+			<p class="text-sm text-silver-500">{t("LandingFaq.moreQuestions")}</p>
+			<a
+				href="#contact"
+				class="focus-ring mt-4 inline-flex items-center justify-center rounded-sm border border-silver-400/35 px-6 py-3 text-sm font-medium text-silver-200 transition-colors hover:border-silver-300 hover:bg-white/4"
+			>
+				{t("LandingFaq.contactCta")}
+			</a>
+		</div>
+	</div>
+</section>

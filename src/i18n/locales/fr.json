@@ -12,7 +12,7 @@
     "labelFr": "FR",
     "labelEn": "EN",
     "titleFr": "Afficher le site en français",
-    "titleEn": "Show site in English"
+    "titleEn": "Afficher le site en anglais"
   },
   "HeroMinimal": {
     "eyebrow": "Partenaire traiteurs & événementiel",
@@ -22,14 +22,14 @@
     "secondaryCta": "L’offre B2B"
   },
   "LandingOffer": {
-    "title": "Votre sous-traitant service, au niveau de votre marque",
-    "intro": "Lorsque vous signez un mariage, une cérémonie ou une conférence, le service en salle porte votre réputation. Story Events constitue des équipes formées — maîtres d’hôtel, serveurs — qui prolongent votre exigence traiteur, avec discrétion et tenue irréprochable.",
-    "cardB2bTitle": "B2B uniquement",
-    "cardB2bBody": "Nous travaillons avec les entreprises du traiteur et de l’événementiel : vous gardez la relation client, nous déployons le personnel sur vos briefs.",
-    "cardQualityTitle": "Qualité constatée",
-    "cardQualityBody": "Recrutement sélectif, tenue adaptée à votre charte, attitude alignée sur le haut de gamme. Un interlocuteur dédié pour caler les effectifs et le déroulé.",
-    "cardReactivityTitle": "Réactivité",
-    "cardReactivityBody": "Mariages, cocktails d’entreprise, séminaires, galas : nous montons les équipes selon vos contraintes de planning et de volume."
+    "title": "L’EXCELLENCE AU SERVICE DE L’EXCEPTIONNEL",
+    "intro": "Dans l’univers exigeant de l’événementiel, chaque détail compte. Story Events incarne l’art du service avec une sélection rigoureuse de professionnels d’exception : hôtes et hôtesses d’accueil, serveurs, cuisiniers et équipiers, tous formés pour offrir une prestation à la hauteur des événements les plus prestigieux.",
+    "imageTableAlt": "Dressage d’une table de mariage haut de gamme",
+    "imageGlassesAlt": "Verres dressés pour un service de réception",
+    "cardExpertiseTitle": "Savoir-faire et rigueur",
+    "cardExpertiseBody": "Chaque membre de Story Events incarne l’élégance du service et la précision du geste, assurant des prestations impeccables, où exigence et perfection sont la norme.",
+    "cardMaitreHotelTitle": "Nos maîtres d’hôtel à votre service",
+    "cardMaitreHotelBody": "Avec Story Events, plus besoin de recruter ni de former. Nos collaborateurs expérimentés maîtrisent chaque détail, garantissant une prestation fluide, élégante et irréprochable. Faites confiance à des professionnels déjà prêts à sublimer votre événement, sans compromis sur l’excellence."
   },
   "LandingServices": {
     "title": "Profils mobilisables",
@@ -59,7 +59,22 @@
   },
   "LandingInternational": {
     "title": "UNE PRÉSENCE À L’INTERNATIONALE",
-    "content": "Sollicitée à travers l’Europe, nous sommes le choix des organisateurs exigeants qui recherchent un service d’exception, reconnu à l’international."
+    "content": "Sollicitée à travers l’Europe, nous sommes le choix des organisateurs exigeants qui recherchent un service d’exception, reconnu à l’international.",
+    "imageAlt": "Carte illustrant la présence internationale de Story Events en Europe"
+  },
+  "LandingFaq": {
+    "title": "FAQ",
+    "intro": "Quelques réponses rapides aux questions les plus fréquentes avant de nous confier votre prochain événement.",
+    "item1Question": "Intervenez-vous uniquement sur des événements haut de gamme ?",
+    "item1Answer": "Nous intervenons sur des mariages, réceptions privées et événements d’entreprise avec le même niveau d’exigence. Notre priorité reste toujours la qualité du service et la représentation irréprochable de votre image.",
+    "item2Question": "Pouvez-vous constituer une équipe rapidement ?",
+    "item2Answer": "Oui, selon les disponibilités et le format de votre événement. Nous faisons le maximum pour mobiliser des profils adaptés rapidement, sans compromis sur la qualité de la prestation.",
+    "item3Question": "Travaillez-vous avec des traiteurs déjà structurés ?",
+    "item3Answer": "Oui. Nous intervenons comme partenaire opérationnel de maisons traiteur exigeantes, avec des équipes capables de s’intégrer à vos standards et à votre organisation terrain.",
+    "item4Question": "Comment démarrer une collaboration ?",
+    "item4Answer": "Partagez votre type d’événement, vos volumes et le niveau de service attendu. Nous revenons avec une proposition claire de profils et de cadre d’intervention.",
+    "moreQuestions": "Vous avez une demande spécifique ?",
+    "contactCta": "Parler à notre équipe"
   },
   "LandingContact": {
     "title": "Échanger sur un partenariat",

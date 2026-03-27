@@ -24,12 +24,12 @@
   "LandingOffer": {
     "title": "Your service subcontractor, at your brand’s level",
     "intro": "When you sign a wedding, ceremony, or conference, front-of-house service carries your reputation. Story Events builds trained teams — maîtres d’hôtel, servers — who extend your catering standards, with discretion and impeccable presentation.",
-    "cardB2bTitle": "B2B only",
-    "cardB2bBody": "We work with catering and event businesses: you keep the client relationship, we deploy staff to your briefs.",
-    "cardQualityTitle": "Proven quality",
-    "cardQualityBody": "Selective recruitment, dress code aligned with your brand, attitude suited to high-end service. A dedicated contact to align headcount and flow.",
-    "cardReactivityTitle": "Responsiveness",
-    "cardReactivityBody": "Weddings, corporate cocktails, seminars, galas: we staff teams to your schedule and volume constraints."
+    "imageTableAlt": "Premium wedding table setting",
+    "imageGlassesAlt": "Glasses prepared for reception service",
+    "cardExpertiseTitle": "Expertise and rigor",
+    "cardExpertiseBody": "Each Story Events team member embodies elegant service and precise execution, delivering impeccable performances where high standards and perfection are the norm.",
+    "cardMaitreHotelTitle": "Our maîtres d’hôtel at your service",
+    "cardMaitreHotelBody": "With Story Events, there is no need to recruit or train. Our experienced professionals master every detail, ensuring a smooth, elegant, and flawless service. Rely on teams already prepared to elevate your event without compromising on excellence."
   },
   "LandingServices": {
     "title": "Available profiles",
@@ -59,7 +59,22 @@
   },
   "LandingInternational": {
     "title": "AN INTERNATIONAL PRESENCE",
-    "content": "Requested across Europe, we are the choice of demanding organizers looking for exceptional service recognized internationally."
+    "content": "Requested across Europe, we are the choice of demanding organizers looking for exceptional service recognized internationally.",
+    "imageAlt": "Map illustrating Story Events' international presence across Europe"
+  },
+  "LandingFaq": {
+    "title": "FAQ",
+    "intro": "A few quick answers to the most common questions before trusting us with your next event.",
+    "item1Question": "Do you only work on high-end events?",
+    "item1Answer": "We support weddings, private receptions, and corporate events with the same level of standards. Our priority is always service quality and flawless representation of your brand image.",
+    "item2Question": "Can you assemble a team quickly?",
+    "item2Answer": "Yes, depending on availability and the format of your event. We do everything possible to mobilize the right profiles quickly, without compromising the quality of the service.",
+    "item3Question": "Do you provide a single point of contact on event day?",
+    "item3Answer": "Yes. A lead profile is designated to coordinate service execution and maintain consistent communication with your operational teams.",
+    "item4Question": "Can your teams adapt to our service protocol?",
+    "item4Answer": "Absolutely. We align with your standards, sequencing, and brand requirements to deliver a service that feels like a natural extension of your house.",
+    "moreQuestions": "Need details about your event format or requirements?",
+    "contactCta": "Contact our team"
   },
   "LandingContact": {
     "title": "Discuss a partnership",

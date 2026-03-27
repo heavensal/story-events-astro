@@ -3,6 +3,8 @@ import LanguageSwitcher from "./LanguageSwitcher.astro";
 import { siteConfig } from "../site.config";
 import type { Locale } from "../i18n/i18n";
 import splashArt from "../../assets/images/story_events_splash_art.jpg";
+import storyEventsLogo from "../../assets/images/story_events_logo.svg";
+import storyEventsTitle from "../../assets/images/title_story_events.svg";
 
 interface Props {
 	locale: Locale;
@@ -66,9 +68,21 @@ const {
 		</p>
 		<h1
 			id="hero-brand-heading"
-			class="font-display text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.1] mb-6 text-silver-100"
+			class="mb-6"
 		>
-			{siteConfig.name}
+			<span class="sr-only">{siteConfig.name}</span>
+			<span class="flex flex-col items-center gap-5" aria-hidden="true">
+				<img
+					src={storyEventsLogo.src}
+					alt=""
+					class="h-28 w-28 md:h-36 md:w-36"
+				/>
+				<img
+					src={storyEventsTitle.src}
+					alt=""
+					class="w-full max-w-[28rem] md:max-w-[36rem]"
+				/>
+			</span>
 		</h1>
 		<p
 			class="text-lg md:text-xl text-silver-300/95 mb-12 max-w-2xl mx-auto font-light leading-relaxed"
@@ -94,6 +108,7 @@ const {
 					<a
 						href={secondaryHref}
 						class="inline-flex items-center justify-center px-9 py-4 border border-silver-500/60 text-silver-200 font-medium rounded-sm hover:border-silver-300 hover:bg-white/4 transition-colors focus-ring"
+						aria-describedby="heading-offer"
 					>
 						{secondaryLabel}
 					</a>
