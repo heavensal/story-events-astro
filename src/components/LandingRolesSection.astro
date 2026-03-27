@@ -1,0 +1,48 @@
+---
+import { getFixedT, type Locale } from "../i18n/i18n";
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getFixedT(locale);
+
+const roles = [
+	{
+		description: t("LandingRoles.itemHostsDesc"),
+		label: t("LandingRoles.itemHostsLabel"),
+	},
+	{
+		description: t("LandingRoles.itemServersDesc"),
+		label: t("LandingRoles.itemServersLabel"),
+	},
+	{
+		description: t("LandingRoles.itemReinforcementsDesc"),
+		label: t("LandingRoles.itemReinforcementsLabel"),
+	},
+];
+---
+
+<section aria-labelledby="heading-roles" class="min-w-0">
+	<h2
+		id="heading-roles"
+		class="mb-6 font-display text-3xl font-semibold text-silver-100 md:text-4xl"
+	>
+		{t("LandingRoles.title")}
+	</h2>
+	<ul class="space-y-4 text-silver-400">
+		{
+			roles.map((role) => (
+				<li class="flex gap-3">
+					<span class="mt-0.5 shrink-0 text-silver-300" aria-hidden="true">◆</span>
+					<span>
+						<strong class="font-medium text-silver-200">{role.label}</strong>
+						{" — "}
+						{role.description}
+					</span>
+				</li>
+			))
+		}
+	</ul>
+</section>

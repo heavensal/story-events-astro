@@ -1,0 +1,64 @@
+---
+import { getFixedT, type Locale } from "../i18n/i18n";
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getFixedT(locale);
+
+const cards = [
+	{
+		body: t("LandingOffer.cardB2bBody"),
+		id: "offer-card-b2b-title",
+		title: t("LandingOffer.cardB2bTitle"),
+	},
+	{
+		body: t("LandingOffer.cardQualityBody"),
+		className:
+			"rounded-sm border border-white/8 bg-surface-850/80 p-8 backdrop-blur-sm md:border-silver-400/25 md:shadow-[0_0_60px_-20px_rgba(200,204,212,0.15)]",
+		id: "offer-card-quality-title",
+		title: t("LandingOffer.cardQualityTitle"),
+	},
+	{
+		body: t("LandingOffer.cardReactivityBody"),
+		id: "offer-card-reactivity-title",
+		title: t("LandingOffer.cardReactivityTitle"),
+	},
+];
+---
+
+<section
+	id="offre"
+	class="relative border-y border-white/6 bg-surface-900 px-4 py-20 md:py-28"
+	aria-labelledby="heading-offer"
+>
+	<div class="container mx-auto max-w-5xl">
+		<header class="mx-auto mb-16 max-w-2xl text-center md:mb-20">
+			<h2
+				id="heading-offer"
+				class="mb-4 font-display text-3xl font-semibold text-silver-100 md:text-4xl"
+			>
+				{t("LandingOffer.title")}
+			</h2>
+			<p class="leading-relaxed text-silver-400">{t("LandingOffer.intro")}</p>
+		</header>
+		<div class="grid gap-6 md:grid-cols-3 md:gap-8">
+			{
+				cards.map((card) => (
+					<article
+						class={card.className ??
+							"rounded-sm border border-white/8 bg-surface-850/80 p-8 backdrop-blur-sm"}
+						aria-labelledby={card.id}
+					>
+						<p id={card.id} class="mb-3 font-display text-xl text-silver-300">
+							{card.title}
+						</p>
+						<p class="text-sm leading-relaxed text-silver-500">{card.body}</p>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>

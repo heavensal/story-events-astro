@@ -1,0 +1,44 @@
+---
+import { getFixedT, type Locale } from "../i18n/i18n";
+import { pageHref, pageRoutes } from "../lib/paths";
+import { siteConfig } from "../site.config";
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getFixedT(locale);
+const { email } = siteConfig.contact;
+---
+
+<section
+	id="contact"
+	class="border-t border-white/6 bg-surface-900 px-4 py-20 md:py-28"
+	aria-labelledby="heading-contact"
+>
+	<div class="container mx-auto max-w-xl text-center">
+		<h2
+			id="heading-contact"
+			class="mb-4 font-display text-3xl font-semibold text-silver-100 md:text-4xl"
+		>
+			{t("LandingContact.title")}
+		</h2>
+		<p class="mb-10 leading-relaxed text-silver-400">
+			{t("LandingContact.intro")}
+		</p>
+		<div class="mb-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+			<a
+				href={`mailto:${email}`}
+				class="focus-ring inline-flex items-center justify-center rounded-sm bg-linear-to-b from-silver-300 to-silver-400 px-8 py-3.5 font-semibold text-surface-950 transition-all hover:from-silver-200 hover:to-silver-300"
+			>
+				{t("LandingContact.emailCta")}
+			</a>
+		</div>
+		<p class="text-sm text-silver-500">
+			<a href={pageHref(pageRoutes.legalNotice)} class="link-silver">
+				{t("LandingContact.legalPoliciesLink")}
+			</a>
+		</p>
+	</div>
+</section>

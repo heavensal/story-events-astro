@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-	--font-display: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
-	--font-sans: "Manrope Variable", "Manrope", ui-sans-serif, system-ui, sans-serif;
+	--font-display: "Afacad Variable", "Afacad", "Georgia", "Times New Roman", serif;
+	--font-sans: "Afacad Variable", "Afacad", "Manrope Variable", "Manrope", ui-sans-serif, system-ui, sans-serif;
 	--color-surface-950: #070708;
 	--color-surface-900: #0e0e10;
 	--color-surface-850: #141416;
@@ -19,12 +19,14 @@
 		@apply scroll-smooth;
 		font-family: var(--font-sans);
 	}
+
 	h1,
 	h2,
 	h3,
 	.font-display {
 		font-family: var(--font-display);
 	}
+
 	@media (prefers-reduced-motion: reduce) {
 		html {
 			scroll-behavior: auto;

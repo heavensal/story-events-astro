@@ -1,0 +1,43 @@
+---
+import { getFixedT, type Locale } from "../i18n/i18n";
+import mapImage from "../../assets/images/map.png";
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getFixedT(locale);
+---
+
+<section
+	class="border-t border-white/6 bg-surface-900 px-4 py-20 md:py-24"
+	aria-labelledby="heading-international"
+>
+	<div class="container mx-auto text-center">
+		<p class="mb-4 text-xs uppercase tracking-[0.35em] text-silver-400">
+			Story Events
+		</p>
+		<h2
+			id="heading-international"
+			class="mb-8 font-display text-3xl font-semibold uppercase text-silver-100 md:text-4xl"
+		>
+			{t("LandingInternational.title")}
+		</h2>
+
+		<div class="grid grid-cols-1 md:grid-cols-2">
+
+			<div class="p-0.5 mb-8 bg-linear-to-br from-silver-300 via-silver-500 to-silver-300">
+				<img
+					src={mapImage.src}
+					alt=""
+					class="mx-auto w-full max-w-3xl object-cover"
+				/>
+			</div>
+			<p class="mx-auto max-w-3xl text-lg place-content-center leading-relaxed text-silver-300 md:text-xl">
+				{t("LandingInternational.content")}
+			</p>
+
+		</div>
+	</div>
+</section>

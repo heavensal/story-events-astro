@@ -31,6 +31,17 @@
     "cardReactivityTitle": "Responsiveness",
     "cardReactivityBody": "Weddings, corporate cocktails, seminars, galas: we staff teams to your schedule and volume constraints."
   },
+  "LandingServices": {
+    "title": "Available profiles",
+    "intro": "We assemble the right teams for your event formats, with constant attention to presentation, service flow, and protection of your brand image.",
+    "itemHosts": "Hosts and hostesses",
+    "itemMaitreHotel": "Maître d’Hôtel",
+    "itemMaitreHotelDescription": "Service coordination, attention to detail, and consistent execution at the highest standard throughout the event.",
+    "itemHeadChefs": "Head chefs",
+    "itemKitchenAssistants": "Kitchen assistants",
+    "itemServers": "Servers",
+    "itemHandlers": "Handlers"
+  },
   "LandingRoles": {
     "title": "Roles & positions",
     "itemHostsLabel": "Maîtres d’hôtel",
@@ -45,6 +56,10 @@
     "itemWeddings": "Weddings and private ceremonies",
     "itemCorporate": "Corporate receptions, conferences, seminars",
     "itemCocktails": "Cocktails, galas, launches"
+  },
+  "LandingInternational": {
+    "title": "AN INTERNATIONAL PRESENCE",
+    "content": "Requested across Europe, we are the choice of demanding organizers looking for exceptional service recognized internationally."
   },
   "LandingContact": {
     "title": "Discuss a partnership",

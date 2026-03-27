@@ -16,8 +16,8 @@
   },
   "HeroMinimal": {
     "eyebrow": "Partenaire traiteurs & événementiel",
-    "tagline": "Personnel d’exception pour vos réceptions",
-    "taglineExtension": "équipes maîtres d’hôtel et service sur mesure pour vos réceptions, sans compromis sur l’image de votre maison.",
+    "tagline": "Notre Talent au Service de vos Rêves",
+    "taglineExtension": "",
     "primaryCta": "Parler de votre besoin",
     "secondaryCta": "L’offre B2B"
   },
@@ -30,6 +30,17 @@
     "cardQualityBody": "Recrutement sélectif, tenue adaptée à votre charte, attitude alignée sur le haut de gamme. Un interlocuteur dédié pour caler les effectifs et le déroulé.",
     "cardReactivityTitle": "Réactivité",
     "cardReactivityBody": "Mariages, cocktails d’entreprise, séminaires, galas : nous montons les équipes selon vos contraintes de planning et de volume."
+  },
+  "LandingServices": {
+    "title": "Profils mobilisables",
+    "intro": "Nous constituons les équipes adaptées à vos formats de prestation, avec une attention constante à la présentation, au rythme du service et à l’image de votre maison.",
+    "itemHosts": "Hôtes et hôtesses d'accueil",
+    "itemMaitreHotel": "Maître d’Hôtel",
+    "itemMaitreHotelDescription": "Coordination du service, sens du détail et maintien d’un niveau d’exigence irréprochable sur toute la prestation.",
+    "itemHeadChefs": "Chefs cuisiniers",
+    "itemKitchenAssistants": "Commis de cuisine",
+    "itemServers": "Serveurs",
+    "itemHandlers": "Manutentionnaires"
   },
   "LandingRoles": {
     "title": "Métiers & rôles",
@@ -45,6 +56,10 @@
     "itemWeddings": "Mariages et cérémonies privées",
     "itemCorporate": "Réceptions d’entreprise, conférences, séminaires",
     "itemCocktails": "Cocktails, galas, lancements"
+  },
+  "LandingInternational": {
+    "title": "UNE PRÉSENCE À L’INTERNATIONALE",
+    "content": "Sollicitée à travers l’Europe, nous sommes le choix des organisateurs exigeants qui recherchent un service d’exception, reconnu à l’international."
   },
   "LandingContact": {
     "title": "Échanger sur un partenariat",

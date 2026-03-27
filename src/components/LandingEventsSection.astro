@@ -1,0 +1,35 @@
+---
+import { getFixedT, type Locale } from "../i18n/i18n";
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getFixedT(locale);
+
+const events = [
+	t("LandingEvents.itemWeddings"),
+	t("LandingEvents.itemCorporate"),
+	t("LandingEvents.itemCocktails"),
+];
+---
+
+<section aria-labelledby="heading-events" class="min-w-0">
+	<h2
+		id="heading-events"
+		class="mb-6 font-display text-3xl font-semibold text-silver-100 md:text-4xl"
+	>
+		{t("LandingEvents.title")}
+	</h2>
+	<ul class="space-y-4 text-silver-400">
+		{
+			events.map((event) => (
+				<li class="flex gap-3">
+					<span class="mt-0.5 shrink-0 text-silver-300" aria-hidden="true">◆</span>
+					<span>{event}</span>
+				</li>
+			))
+		}
+	</ul>
+</section>
