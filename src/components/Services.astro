@@ -1,5 +1,10 @@
 ---
 import { getFixedT, type Locale } from "../i18n/i18n";
+import guestHostessImage from "../../assets/images/guest_hostess.jpg";
+import headcookerImage from "../../assets/images/headcooker.jpg";
+import helpHeadcookerImage from "../../assets/images/help_headcooker.jpg";
+import waiterImage from "../../assets/images/waiter.jpg";
+import workingManImage from "../../assets/images/working_man.jpg";
 
 interface Props {
 	locale: Locale;
@@ -9,7 +14,7 @@ const { locale } = Astro.props;
 const t = getFixedT(locale);
 const services = [
 	{
-		image: "/assets/images/guest_hostess.jpg",
+		image: guestHostessImage.src,
 		name: t("LandingServices.itemHosts"),
 	},
 	{
@@ -17,19 +22,19 @@ const services = [
 		name: t("LandingServices.itemMaitreHotel"),
 	},
 	{
-		image: "/assets/images/headcooker.jpg",
+		image: headcookerImage.src,
 		name: t("LandingServices.itemHeadChefs"),
 	},
 	{
-		image: "/assets/images/help_headcooker.jpg",
+		image: helpHeadcookerImage.src,
 		name: t("LandingServices.itemKitchenAssistants"),
 	},
 	{
-		image: "/assets/images/waiter.jpg",
+		image: waiterImage.src,
 		name: t("LandingServices.itemServers"),
 	},
 	{
-		image: "/assets/images/working_man.jpg",
+		image: workingManImage.src,
 		name: t("LandingServices.itemHandlers"),
 	},
 ];
