@@ -12,7 +12,7 @@
     "labelFr": "FR",
     "labelEn": "EN",
     "titleFr": "Afficher le site en français",
-    "titleEn": "Show site in English"
+    "titleEn": "Afficher le site en anglais"
   },
   "HeroMinimal": {
     "eyebrow": "Partenaire traiteurs & événementiel",
@@ -23,13 +23,13 @@
   },
   "LandingOffer": {
     "title": "L’EXCELLENCE AU SERVICE DE L’EXCEPTIONNEL",
-    "intro": "Dans l’univers exigeant de l’événementiel, chaque détail compte. Story Event’s incarne l’art du service avec une sélection rigoureuse de professionnels d’exception : hôtes et hôtesses d’accueil, serveurs, cuisiniers et équipiers, tous formés pour offrir une prestation à la hauteur des événements les plus prestigieux.",
+    "intro": "Dans l’univers exigeant de l’événementiel, chaque détail compte. Story Events incarne l’art du service avec une sélection rigoureuse de professionnels d’exception : hôtes et hôtesses d’accueil, serveurs, cuisiniers et équipiers, tous formés pour offrir une prestation à la hauteur des événements les plus prestigieux.",
     "imageTableAlt": "Dressage d’une table de mariage haut de gamme",
     "imageGlassesAlt": "Verres dressés pour un service de réception",
     "cardExpertiseTitle": "Savoir-faire et rigueur",
-    "cardExpertiseBody": "Chaque membre de Story Event’s incarne l’élégance du service et la précision du geste, assurant des prestations impeccables, où exigence et perfection sont la norme.",
+    "cardExpertiseBody": "Chaque membre de Story Events incarne l’élégance du service et la précision du geste, assurant des prestations impeccables, où exigence et perfection sont la norme.",
     "cardMaitreHotelTitle": "Nos maîtres d’hôtel à votre service",
-    "cardMaitreHotelBody": "Avec Story Event’s, plus besoin de recruter ni de former. Nos collaborateurs expérimentés maîtrisent chaque détail, garantissant une prestation fluide, élégante et irréprochable. Faites confiance à des professionnels déjà prêts à sublimer votre événement, sans compromis sur l’excellence."
+    "cardMaitreHotelBody": "Avec Story Events, plus besoin de recruter ni de former. Nos collaborateurs expérimentés maîtrisent chaque détail, garantissant une prestation fluide, élégante et irréprochable. Faites confiance à des professionnels déjà prêts à sublimer votre événement, sans compromis sur l’excellence."
   },
   "LandingServices": {
     "title": "Profils mobilisables",
@@ -68,7 +68,13 @@
     "item1Question": "Intervenez-vous uniquement sur des événements haut de gamme ?",
     "item1Answer": "Nous intervenons sur des mariages, réceptions privées et événements d’entreprise avec le même niveau d’exigence. Notre priorité reste toujours la qualité du service et la représentation irréprochable de votre image.",
     "item2Question": "Pouvez-vous constituer une équipe rapidement ?",
-    "item2Answer": "Oui, selon les disponibilités et le format de votre événement. Nous faisons le maximum pour mobiliser des profils adaptés rapidement, sans compromis sur la qualité de la prestation."
+    "item2Answer": "Oui, selon les disponibilités et le format de votre événement. Nous faisons le maximum pour mobiliser des profils adaptés rapidement, sans compromis sur la qualité de la prestation.",
+    "item3Question": "Travaillez-vous avec des traiteurs déjà structurés ?",
+    "item3Answer": "Oui. Nous intervenons comme partenaire opérationnel de maisons traiteur exigeantes, avec des équipes capables de s’intégrer à vos standards et à votre organisation terrain.",
+    "item4Question": "Comment démarrer une collaboration ?",
+    "item4Answer": "Partagez votre type d’événement, vos volumes et le niveau de service attendu. Nous revenons avec une proposition claire de profils et de cadre d’intervention.",
+    "moreQuestions": "Vous avez une demande spécifique ?",
+    "contactCta": "Parler à notre équipe"
   },
   "LandingContact": {
     "title": "Échanger sur un partenariat",

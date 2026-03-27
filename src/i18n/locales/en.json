@@ -68,7 +68,13 @@
     "item1Question": "Do you only work on high-end events?",
     "item1Answer": "We support weddings, private receptions, and corporate events with the same level of standards. Our priority is always service quality and flawless representation of your brand image.",
     "item2Question": "Can you assemble a team quickly?",
-    "item2Answer": "Yes, depending on availability and the format of your event. We do everything possible to mobilize the right profiles quickly, without compromising the quality of the service."
+    "item2Answer": "Yes, depending on availability and the format of your event. We do everything possible to mobilize the right profiles quickly, without compromising the quality of the service.",
+    "item3Question": "Do you provide a single point of contact on event day?",
+    "item3Answer": "Yes. A lead profile is designated to coordinate service execution and maintain consistent communication with your operational teams.",
+    "item4Question": "Can your teams adapt to our service protocol?",
+    "item4Answer": "Absolutely. We align with your standards, sequencing, and brand requirements to deliver a service that feels like a natural extension of your house.",
+    "moreQuestions": "Need details about your event format or requirements?",
+    "contactCta": "Contact our team"
   },
   "LandingContact": {
     "title": "Discuss a partnership",
