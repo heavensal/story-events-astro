@@ -1,4 +1,5 @@
 ---
+import { contentforgeApiUrl } from "../lib/contentforge";
 import { getFixedT, type Locale } from "../i18n/i18n";
 
 interface Props {
@@ -8,12 +9,18 @@ interface Props {
 interface ApiFaq {
 	answer?: string;
 	question?: string;
+	position?: number;
+}
+
+interface FaqItem {
+	answer: string;
+	question: string;
 }
 
 const { locale } = Astro.props;
 const t = getFixedT(locale);
 
-const fallbackItems = [
+const fallbackItems: FaqItem[] = [
 	{
 		answer: t("LandingFaq.item1Answer"),
 		question: t("LandingFaq.item1Question"),
@@ -24,16 +31,24 @@ const fallbackItems = [
 	},
 ];
 
-const getFaqItems = async () => {
+const faqsUrl = contentforgeApiUrl("faqs");
+const apiToken = import.meta.env.CONTENTFORGE_API_TOKEN;
+
+const getFaqItems = async (): Promise<FaqItem[]> => {
+	if (!apiToken || typeof apiToken !== "string") {
+		return fallbackItems;
+	}
 	try {
-		const response = await fetch("http://51.75.124.208:3001/api/v1/faqs", {
+		const response = await fetch(faqsUrl, {
 			headers: {
-				Authorization: "Bearer 3J3jY5BkXVXp8swjVeXXhQxy",
+				Authorization: `Bearer ${apiToken}`,
 				Accept: "application/json",
 			},
 		});
+		if (!response.ok) {
+			return fallbackItems;
+		}
 		const faqs = await response.json();
-		console.log("FAQs response.json()", faqs);
 		const rawItems = Array.isArray(faqs)
 			? faqs
 			: Array.isArray(faqs?.data)
@@ -46,6 +61,10 @@ const getFaqItems = async () => {
 					faq.question.length > 0 &&
 					typeof faq?.answer === "string" &&
 					faq.answer.length > 0,
+			)
+			.sort(
+				(a: ApiFaq, b: ApiFaq) =>
+					(a.position ?? 0) - (b.position ?? 0),
 			)
 			.map((faq: ApiFaq) => ({
 				answer: faq.answer as string,
@@ -81,7 +100,7 @@ const items = await getFaqItems();
 		</header>
 		<div class="space-y-4">
 			{
-				items.map((item) => (
+				items.map((item: FaqItem) => (
 					<details class="group rounded-sm border border-white/8 bg-surface-850/80 backdrop-blur-sm">
 						<summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-left marker:hidden">
 							<span class="font-display text-xl text-silver-200">
