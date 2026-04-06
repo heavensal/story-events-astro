@@ -6,82 +6,23 @@ interface Props {
 	locale: Locale;
 }
 
-interface ApiFaq {
-	answer?: string;
-	question?: string;
-	position?: number;
-}
-
-interface FaqItem {
-	answer: string;
-	question: string;
-}
-
 const { locale } = Astro.props;
 const t = getFixedT(locale);
-
-const fallbackItems: FaqItem[] = [
-	{
-		answer: t("LandingFaq.item1Answer"),
-		question: t("LandingFaq.item1Question"),
-	},
-	{
-		answer: t("LandingFaq.item2Answer"),
-		question: t("LandingFaq.item2Question"),
-	},
-];
-
-const faqsUrl = contentforgeApiUrl("faqs");
-const apiToken = import.meta.env.CONTENTFORGE_API_TOKEN;
-
-const getFaqItems = async (): Promise<FaqItem[]> => {
-	if (!apiToken || typeof apiToken !== "string") {
-		return fallbackItems;
-	}
-	try {
-		const response = await fetch(faqsUrl, {
-			headers: {
-				Authorization: `Bearer ${apiToken}`,
-				Accept: "application/json",
-			},
-		});
-		if (!response.ok) {
-			return fallbackItems;
-		}
-		const faqs = await response.json();
-		const rawItems = Array.isArray(faqs)
-			? faqs
-			: Array.isArray(faqs?.data)
-				? faqs.data
-				: [];
-		const items = rawItems
-			.filter(
-				(faq: ApiFaq) =>
-					typeof faq?.question === "string" &&
-					faq.question.length > 0 &&
-					typeof faq?.answer === "string" &&
-					faq.answer.length > 0,
-			)
-			.sort(
-				(a: ApiFaq, b: ApiFaq) =>
-					(a.position ?? 0) - (b.position ?? 0),
-			)
-			.map((faq: ApiFaq) => ({
-				answer: faq.answer as string,
-				question: faq.question as string,
-			}));
-
-		return items.length ? items : fallbackItems;
-	} catch (error) {
-		console.error("Failed to load FAQs from API", error);
-		return fallbackItems;
-	}
-};
-
-const items = await getFaqItems();
+const faqKeys = ["item1", "item2", "item3", "item4"] as const;
+const items = faqKeys
+	.map((itemKey) => {
+		const questionKey = `LandingFaq.${itemKey}Question`;
+		const answerKey = `LandingFaq.${itemKey}Answer`;
+		const question = t(questionKey);
+		const answer = t(answerKey);
+		if (question === questionKey || answer === answerKey) return null;
+		return { answer, question };
+	})
+	.filter((item): item is { answer: string; question: string } => item !== null);
 ---
 
 <section
+	id="faq"
 	class="border-t border-white/6 bg-surface-950 px-4 py-20 md:py-24"
 	aria-labelledby="heading-faq"
 >
@@ -102,7 +43,9 @@ const items = await getFaqItems();
 			{
 				items.map((item: FaqItem) => (
 					<details class="group rounded-sm border border-white/8 bg-surface-850/80 backdrop-blur-sm">
-						<summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-left marker:hidden">
+						<summary
+							class="focus-ring flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-left marker:hidden"
+						>
 							<span class="font-display text-xl text-silver-200">
 								{item.question}
 							</span>
@@ -116,6 +59,15 @@ const items = await getFaqItems();
 					</details>
 				))
 			}
+		</div>
+		<div class="mt-10 text-center">
+			<p class="text-sm text-silver-500">{t("LandingFaq.moreQuestions")}</p>
+			<a
+				href="#contact"
+				class="focus-ring mt-4 inline-flex items-center justify-center rounded-sm border border-silver-400/35 px-6 py-3 text-sm font-medium text-silver-200 transition-colors hover:border-silver-300 hover:bg-white/4"
+			>
+				{t("LandingFaq.contactCta")}
+			</a>
 		</div>
 	</div>
 </section>
