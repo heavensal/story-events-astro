@@ -6,19 +6,80 @@ interface Props {
 	locale: Locale;
 }
 
+interface ApiFaq {
+	answer?: string;
+	question?: string;
+	position?: number;
+}
+
+interface FaqItem {
+	answer: string;
+	question: string;
+}
+
 const { locale } = Astro.props;
 const t = getFixedT(locale);
+
 const faqKeys = ["item1", "item2", "item3", "item4"] as const;
-const items = faqKeys
-	.map((itemKey) => {
-		const questionKey = `LandingFaq.${itemKey}Question`;
-		const answerKey = `LandingFaq.${itemKey}Answer`;
-		const question = t(questionKey);
-		const answer = t(answerKey);
-		if (question === questionKey || answer === answerKey) return null;
-		return { answer, question };
-	})
-	.filter((item): item is { answer: string; question: string } => item !== null);
+
+const getFallbackItems = (): FaqItem[] =>
+	faqKeys
+		.map((itemKey) => {
+			const questionKey = `LandingFaq.${itemKey}Question`;
+			const answerKey = `LandingFaq.${itemKey}Answer`;
+			const question = t(questionKey);
+			const answer = t(answerKey);
+			if (question === questionKey || answer === answerKey) return null;
+			return { answer, question };
+		})
+		.filter((item): item is FaqItem => item !== null);
+
+const faqsUrl = contentforgeApiUrl("faqs");
+const apiToken = import.meta.env.CONTENTFORGE_API_TOKEN;
+
+const getFaqItems = async (): Promise<FaqItem[]> => {
+	const fallback = getFallbackItems();
+	if (!apiToken || typeof apiToken !== "string") {
+		return fallback;
+	}
+	try {
+		const response = await fetch(faqsUrl, {
+			headers: {
+				Authorization: `Bearer ${apiToken}`,
+				Accept: "application/json",
+			},
+		});
+		if (!response.ok) return fallback;
+		const faqs = await response.json();
+		const rawItems = Array.isArray(faqs)
+			? faqs
+			: Array.isArray(faqs?.data)
+				? faqs.data
+				: [];
+		const fromApi = rawItems
+			.filter(
+				(faq: ApiFaq) =>
+					typeof faq?.question === "string" &&
+					faq.question.length > 0 &&
+					typeof faq?.answer === "string" &&
+					faq.answer.length > 0,
+			)
+			.sort(
+				(a: ApiFaq, b: ApiFaq) =>
+					(a.position ?? 0) - (b.position ?? 0),
+			)
+			.map((faq: ApiFaq) => ({
+				answer: faq.answer as string,
+				question: faq.question as string,
+			}));
+		return fromApi.length ? fromApi : fallback;
+	} catch (error) {
+		console.error("Failed to load FAQs from API", error);
+		return fallback;
+	}
+};
+
+const items = await getFaqItems();
 ---
 
 <section

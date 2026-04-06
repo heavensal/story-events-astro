@@ -24,14 +24,14 @@ const t = getFixedT(locale);
 		>
 			{t("LandingInternational.title")}
 		</h2>
-		<div class="relative mx-auto mt-10 max-w-6xl lg:min-h-[32rem]">
+		<div class="relative mx-auto mt-10 max-w-6xl lg:min-h-128">
 			<figure
 				class="group relative overflow-hidden rounded-sm border border-white/8 bg-surface-950 lg:ml-auto lg:w-[78%]"
 			>
 				<img
 					src={mapImage.src}
 					alt={t("LandingInternational.imageAlt")}
-					class="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+					class="aspect-16/10 w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
 				/>
 				<div class="absolute inset-0 bg-linear-to-t from-surface-950/80 via-surface-950/15 to-transparent"></div>
 				<figcaption class="absolute bottom-0 left-0 right-0 p-6 text-left">
@@ -50,10 +50,6 @@ const t = getFixedT(locale);
 					{t("LandingInternational.content")}
 				</p>
 			</article>
-			<div
-				class="pointer-events-none absolute -bottom-4 right-6 hidden h-24 w-24 border border-silver-400/20 lg:block"
-				aria-hidden="true"
-			></div>
 		</div>
 	</div>
 </section>
