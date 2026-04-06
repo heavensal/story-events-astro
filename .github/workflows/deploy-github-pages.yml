@@ -21,6 +21,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      # Même logique que .env : base API sans /faqs (voir src/lib/contentforge.ts)
+      CONTENTFORGE_API_TOKEN: ${{ secrets.CONTENTFORGE_API_TOKEN }}
+      CONTENTFORGE_URL: ${{ vars.CONTENTFORGE_URL }}
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4

@@ -1,4 +1,5 @@
 ---
+import { contentforgeApiUrl } from "../lib/contentforge";
 import { getFixedT, type Locale } from "../i18n/i18n";
 
 interface Props {
@@ -40,7 +41,7 @@ const items = faqKeys
 		</header>
 		<div class="space-y-4">
 			{
-				items.map((item) => (
+				items.map((item: FaqItem) => (
 					<details class="group rounded-sm border border-white/8 bg-surface-850/80 backdrop-blur-sm">
 						<summary
 							class="focus-ring flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-left marker:hidden"
