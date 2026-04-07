@@ -4,18 +4,20 @@ import tailwind from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 /**
- * À adapter après « Use this template » ou `create astro -- --template …`.
+ * Astro configuration for Story Events landing page.
  *
- * GitHub Pages
- * - Dépôt projet : site = https://USER.github.io , base = '/nom-exact-du-depot/'
- * - Dépôt USER.github.io (racine) : site = https://USER.github.io , base = '/'
- * - Domaine perso en racine : site = 'https://votre-domaine.tld' , base = '/'
+ * SEO: Update SITE and BASE when deploying to production.
+ *
+ * Deployment scenarios:
+ * - GitHub Pages project repo: SITE = 'https://USER.github.io', BASE = '/repo-name/'
+ * - GitHub Pages user repo: SITE = 'https://USER.github.io', BASE = '/'
+ * - Custom domain: SITE = 'https://your-domain.tld', BASE = '/'
  */
+
+// SEO: Production site URL (affects canonical URLs, sitemap, Open Graph)
 const SITE = 'https://heavensal.github.io';
-/**
- * Nom du segment d’URL sous github.io (souvent = nom du dépôt).
- * Après « Use this template », remplacer `landing-page-template` par le nom de **votre** dépôt.
- */
+
+// SEO: Base path (repo name for GitHub Pages, '/' for custom domain)
 const BASE = '/story-events-astro/';
 
 // https://astro.build/config

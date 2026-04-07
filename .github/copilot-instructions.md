@@ -1,9 +1,16 @@
 # Copilot Astro Base Template Instructions
 
-When suggesting or generating code for this repository:
+When suggesting or generating code for this repository, follow these instructions.
 
-These are reusable base instructions for Astro projects, not project-specific rules.
-Project-specific instructions should be added separately later.
+## First Steps
+
+**READ THE README.md FIRST.** It contains essential documentation about:
+- Project structure and file organization
+- Component patterns and usage
+- i18n system and translation files
+- SEO configuration (files marked with `// SEO:` comments)
+- ContentForge API integration
+- Tailwind styling conventions
 
 ## Architecture and Components
 
@@ -15,18 +22,57 @@ Project-specific instructions should be added separately later.
 - Do not exceed 150 lines of code per file.
 - Refactor as soon as a generated feature would push a file beyond 150 lines of code.
 
+## Tailwind CSS — STRICT RULES
+
+This project uses **Tailwind CSS 4** with strict conventions.
+
+### ✅ ALWAYS: Use Native Tailwind Classes Only
+
+```astro
+<div class="flex items-center gap-4 px-6 py-4 text-zinc-100">
+<button class="rounded-lg bg-zinc-300 px-4 py-2 hover:bg-zinc-200">
+```
+
+### ❌ NEVER: Use Arbitrary Values (Brackets)
+
+```astro
+<!-- FORBIDDEN -->
+<div class="w-[347px] mt-[23px] text-[#1a2b3c] bg-[rgb(255,0,0)]">
+```
+
+### ❌ NEVER: Use Inline Styles
+
+```astro
+<!-- FORBIDDEN -->
+<div style="margin-top: 23px;">
+<div style={{ marginTop: '23px' }}>
+```
+
+### Animation Priority Order
+
+1. **First**: Use native Tailwind animations (`animate-pulse`, `animate-spin`, `animate-bounce`)
+2. **Second**: Use Tailwind transitions (`transition-colors`, `transition-transform`, `duration-200`)
+3. **Last resort only**: Create custom `@keyframes` in `global.css` (only if explicitly requested)
+
+### Exception
+
+Only deviate from these rules if the user **explicitly requests**:
+- Arbitrary values for a specific use case
+- Custom utility layers or design tokens
+- Complex animations requiring keyframes
+
 ## SEO and Accessibility
 
 - Preserve accessibility and responsive behavior.
 - Every HTML generation must follow the best possible SEO and accessibility practices.
+- Use semantic HTML elements (`<section>`, `<header>`, `<nav>`, `<main>`, `<footer>`).
+- Include proper ARIA labels and landmark roles.
 
-## Tailwind CSS
+## i18n Guidelines
 
-- Use the latest Tailwind CSS version supported by the project.
-- Match the current Tailwind approach already used in the repository.
-- Do not introduce Tailwind utility variables, custom utility layers, or extra tokens by default.
-- Create Tailwind utility variables only when the user explicitly requests them.
-- Create custom animations only if Tailwind cannot cover the requested animation.
+- All user-facing text must use translation keys via `getFixedT(locale)`.
+- Component and variable names remain in English regardless of content language.
+- Translation keys are organized by component name in JSON files.
 
 ## Change Safety
 

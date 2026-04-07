@@ -1,5 +1,5 @@
 ---
-import HeroMinimal from "./HeroMinimal.astro";
+import HeroSection from "./HeroMinimal.astro";
 import LandingContactSection from "./LandingContactSection.astro";
 import LandingEventsSection from "./LandingEventsSection.astro";
 import LandingFaqSection from "./LandingFaqSection.astro";
@@ -19,15 +19,15 @@ const t = getFixedT(locale);
 ---
 
 <main id="main-content" class="tracking-widest">
-	<HeroMinimal
+	<HeroSection
 		{locale}
-		eyebrow={t("HeroMinimal.eyebrow")}
-		tagline={t("HeroMinimal.tagline")}
-		taglineExtension={t("HeroMinimal.taglineExtension")}
+		eyebrow={t("HeroSection.eyebrow")}
+		tagline={t("HeroSection.tagline")}
+		taglineExtension={t("HeroSection.taglineExtension")}
 		primaryHref="#contact"
-		primaryLabel={t("HeroMinimal.primaryCta")}
+		primaryLabel={t("HeroSection.primaryCta")}
 		secondaryHref="#offre"
-		secondaryLabel={t("HeroMinimal.secondaryCta")}
+		secondaryLabel={t("HeroSection.secondaryCta")}
 	/>
 	<LandingOfferSection {locale} />
 	<LandingServicesSection {locale} />

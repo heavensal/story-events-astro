@@ -1,33 +1,57 @@
 /**
- * Point unique à adapter pour le site (SEO, contact, réseaux).
- * Les pages légales reprennent ces valeurs quand c’est pertinent.
+ * Single source of truth for site metadata (SEO, contact, social).
+ * Legal pages reuse these values where relevant.
+ *
+ * SEO: All values in this file affect SEO and should be customized.
  */
 export const siteConfig = {
-	/** Nom affiché (balises, footer, Open Graph) */
+	// SEO: Site identity
+	/** Displayed name (meta tags, footer, Open Graph) */
 	name: 'Story Events',
-	/** Meta description par défaut (~150–160 caractères pour le SEO) */
+	/** Short phrase below main title */
+	tagline: "L'excellence au service de vos événements",
+
+	// SEO: Meta description (150-160 chars recommended)
+	/** Default meta description for search engines */
 	defaultDescription:
-		'Story Events place des équipes qualifiées — maîtres d’hôtel, serveurs — pour les traiteurs : mariages, cérémonies, conférences. Partenariat B2B, discrétion et excellence du service.',
+		"Story Events place des équipes qualifiées — maîtres d'hôtel, serveurs — pour les traiteurs : mariages, cérémonies, conférences. Partenariat B2B, discrétion et excellence du service.",
+
+	// SEO: Language and locale
 	lang: 'fr',
 	locale: 'fr_FR',
-	/** Couleur navigateur (mobile) */
+
+	/** Browser theme color (mobile) */
 	themeColor: '#070708',
+
+	// SEO: Contact info (used in footer, contact section, JSON-LD)
 	contact: {
 		email: 'contact@story-events.fr',
 		phone: '01 23 45 67 89',
 	},
-	/** SIRET / identifiant légal affiché dans le footer et les mentions */
+
+	/** SIRET / legal ID displayed in footer and legal pages */
 	legalId: '[SIRET — à compléter]',
-	/** @handle sans @ ; laisser vide si pas de compte */
+
+	// SEO: Social media profiles
+	/** @handle without @; leave empty if no account */
 	twitterHandle: '',
-	/** Profils publics (JSON-LD `sameAs`) : LinkedIn, etc. */
+	/**
+	 * Social profile URLs for JSON-LD sameAs (LinkedIn, Instagram, etc.)
+	 * Example: ['https://www.linkedin.com/company/...', 'https://instagram.com/...']
+	 */
 	sameAs: [] as readonly string[],
-	/** Dimensions OG si vous définissez `ogImageUrl` (SEO / réseaux). */
+
+	// SEO: Open Graph image for social sharing
+	/**
+	 * Open Graph image dimensions (1200×630 recommended).
+	 * Set to 0 to omit width/height meta tags.
+	 */
 	ogImageWidth: 1200,
 	ogImageHeight: 630,
 	/**
-	 * URL absolue d’une image Open Graph (1200×630 recommandé), ou '' pour ne pas l’émettre.
-	 * Après déploiement, peut être `https://votre-domaine/og-image.jpg` si vous ajoutez le fichier dans public/.
+	 * Absolute URL for Open Graph image, or '' to omit.
+	 * After deployment, can be `https://your-domain.com/og-image.jpg` if you add the file to public/.
 	 */
+	// SEO: Update ogImageUrl after deploying to final domain
 	ogImageUrl: '',
 } as const;
