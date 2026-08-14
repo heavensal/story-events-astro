@@ -1,0 +1,159 @@
+---
+import { getFixedT, type Locale } from "../i18n/i18n";
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getFixedT(locale);
+
+const contactApiUrl = import.meta.env.PUBLIC_CONTACT_FORM_URL ?? "";
+const contactApiToken = import.meta.env.PUBLIC_CONTACT_FORM_TOKEN ?? "";
+const contactEmailSubject = t("ContactForm.emailSubject");
+const formUi = {
+	sending: t("ContactForm.sending"),
+	success: t("ContactForm.success"),
+	error: t("ContactForm.error"),
+	errorNetwork: t("ContactForm.errorNetwork"),
+	errorConfig: t("ContactForm.errorConfig"),
+};
+---
+
+<dialog
+	id="se-contact-dialog"
+	class="fixed inset-0 m-auto h-fit max-h-screen w-full max-w-lg overflow-y-auto rounded-sm border border-white/10 bg-surface-850 p-0 text-left text-silver-100 shadow-lg backdrop:bg-surface-950 backdrop:opacity-70 open:flex open:flex-col"
+	aria-labelledby="se-contact-title"
+>
+	<div class="border-b border-white/10 px-6 py-4">
+		<h3 id="se-contact-title" class="font-display text-xl font-semibold">
+			{t("ContactForm.dialogTitle")}
+		</h3>
+	</div>
+	<form id="se-contact-form" class="flex flex-col gap-4 px-6 py-4">
+		<div>
+			<label for="se-contact-name" class="mb-1 block text-sm font-medium">
+				{t("ContactForm.fieldName")}
+			</label>
+			<input
+				id="se-contact-name"
+				name="name"
+				type="text"
+				autocomplete="name"
+				required
+				class="w-full rounded-sm border border-white/15 bg-surface-900 px-3 py-2 text-silver-100 focus:border-silver-300 focus:outline-none focus:ring-2 focus:ring-silver-300"
+			/>
+		</div>
+		<div>
+			<label for="se-contact-email" class="mb-1 block text-sm font-medium">
+				{t("ContactForm.fieldEmail")}
+			</label>
+			<input
+				id="se-contact-email"
+				name="email"
+				type="email"
+				autocomplete="email"
+				required
+				class="w-full rounded-sm border border-white/15 bg-surface-900 px-3 py-2 text-silver-100 focus:border-silver-300 focus:outline-none focus:ring-2 focus:ring-silver-300"
+			/>
+		</div>
+		<div>
+			<label for="se-contact-message" class="mb-1 block text-sm font-medium">
+				{t("ContactForm.fieldMessage")}
+			</label>
+			<textarea
+				id="se-contact-message"
+				name="message"
+				rows="5"
+				placeholder={t("ContactForm.messagePlaceholder")}
+				class="w-full rounded-sm border border-white/15 bg-surface-900 px-3 py-2 text-silver-100 placeholder:text-silver-500 focus:border-silver-300 focus:outline-none focus:ring-2 focus:ring-silver-300"
+			></textarea>
+		</div>
+		<p id="se-contact-status" class="hidden rounded-sm border px-3 py-2 text-sm" role="status"></p>
+		<div class="flex flex-wrap justify-end gap-3 border-t border-white/10 pt-4">
+			<button
+				type="button"
+				class="rounded-sm border border-white/20 px-4 py-2 text-sm font-medium text-silver-200 hover:bg-white/5"
+				data-se-contact-close
+			>
+				{t("ContactForm.close")}
+			</button>
+			<button
+				type="submit"
+				id="se-contact-submit"
+				class="rounded-sm bg-linear-to-b from-silver-300 to-silver-400 px-4 py-2 text-sm font-semibold text-surface-950 hover:from-silver-200 hover:to-silver-300"
+			>
+				{t("ContactForm.submit")}
+			</button>
+		</div>
+	</form>
+</dialog>
+
+<script define:vars={{ contactApiUrl, contactApiToken, contactEmailSubject, formUi }}>
+	(() => {
+		const dialog = document.getElementById("se-contact-dialog");
+		const form = document.getElementById("se-contact-form");
+		const statusEl = document.getElementById("se-contact-status");
+		const submitBtn = document.getElementById("se-contact-submit");
+
+		function setStatus(kind, text) {
+			if (!statusEl) return;
+			statusEl.textContent = text;
+			statusEl.classList.remove("hidden", "border-emerald-400", "text-emerald-200", "border-red-400", "text-red-200", "border-amber-400", "text-amber-200");
+			if (kind === "ok") statusEl.classList.add("border-emerald-400", "text-emerald-200", "border");
+			else if (kind === "err") statusEl.classList.add("border-red-400", "text-red-200", "border");
+			else statusEl.classList.add("border-amber-400", "text-amber-200", "border");
+		}
+
+		document.querySelectorAll("[data-se-contact-open]").forEach((btn) => {
+			btn.addEventListener("click", () => {
+				statusEl?.classList.add("hidden");
+				dialog?.showModal();
+			});
+		});
+		document.querySelectorAll("[data-se-contact-close]").forEach((btn) => {
+			btn.addEventListener("click", () => dialog?.close());
+		});
+		dialog?.addEventListener("close", () => {
+			form?.reset();
+			statusEl?.classList.add("hidden");
+		});
+
+		form?.addEventListener("submit", async (e) => {
+			e.preventDefault();
+			if (!contactApiUrl || !contactApiToken) {
+				setStatus("warn", formUi.errorConfig);
+				return;
+			}
+			const fd = new FormData(form);
+			const name = String(fd.get("name") || "").trim();
+			const email = String(fd.get("email") || "").trim();
+			const message = String(fd.get("message") || "").trim();
+			const payload = {
+				from_email: email,
+				from_name: name,
+				subject: contactEmailSubject,
+				message: message || "—",
+				fields: { nom: name, email, message: message || "—" },
+			};
+			if (submitBtn) submitBtn.disabled = true;
+			setStatus("warn", formUi.sending);
+			try {
+				const res = await fetch(contactApiUrl, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${contactApiToken}`,
+					},
+					body: JSON.stringify(payload),
+				});
+				setStatus(res.ok ? "ok" : "err", res.ok ? formUi.success : formUi.error);
+				if (res.ok) form.reset();
+			} catch {
+				setStatus("err", formUi.errorNetwork);
+			} finally {
+				if (submitBtn) submitBtn.disabled = false;
+			}
+		});
+	})();
+</script>

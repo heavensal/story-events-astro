@@ -82,6 +82,22 @@
     "emailCta": "Email Story Events",
     "legalPoliciesLink": "Legal notices and policies"
   },
+  "ContactForm": {
+    "openCta": "Send a message",
+    "dialogTitle": "Partnership request",
+    "fieldName": "Name",
+    "fieldEmail": "Email",
+    "fieldMessage": "Message",
+    "messagePlaceholder": "Event type, volumes, expected service level…",
+    "submit": "Send",
+    "close": "Close",
+    "sending": "Sending…",
+    "success": "Thank you! Your message has been sent.",
+    "error": "Something went wrong. Please try again or email us.",
+    "errorNetwork": "Network error. Check your connection.",
+    "errorConfig": "Form not configured (missing PUBLIC_CONTACT_FORM_URL or PUBLIC_CONTACT_FORM_TOKEN).",
+    "emailSubject": "Contact — Story Events"
+  },
   "SiteFooter": {
     "tagline": "Exceptional staff for your receptions",
     "navAriaLabel": "Legal notices and policies",

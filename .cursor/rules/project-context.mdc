@@ -13,7 +13,7 @@ alwaysApply: true
 - Component patterns and the `locale` prop system
 - i18n system and translation files
 - SEO configuration (files marked with `// SEO:` comments)
-- ContentForge API integration
+- ContentForge API integration (`CONTENTFORGE_ENABLED`)
 - Tailwind styling conventions
 
 ## Project Context

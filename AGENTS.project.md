@@ -30,7 +30,9 @@ These complement the base instructions in `AGENTS.md`.
 | `src/i18n/locales/en.json` | English translations |
 | `src/layouts/Layout.astro` | SEO: Meta tags, hreflang, JSON-LD |
 | `src/lib/seo.ts` | JSON-LD structured data builders |
-| `src/lib/contentforge.ts` | API integration utility |
+| `src/lib/contentforge.ts` | API integration (`CONTENTFORGE_ENABLED`) |
+| `src/lib/email/contactMailHtml.ts` | HTML body builder for contact mailers |
+| `src/templates/email/contact-message.html` | Reference email template |
 | `.env` | Runtime configuration |
 
 ## Component Architecture

@@ -1,5 +1,13 @@
 const DEFAULT_BASE = "https://contentforge.1344.fr/api/v1";
 
+/**
+ * When `"true"`, FAQ (and future API-driven blocks) may fetch from ContentForge.
+ * Otherwise i18n fallback is used. A valid `CONTENTFORGE_API_TOKEN` is still required to call the API.
+ */
+export function isContentforgeEnabled(): boolean {
+	return import.meta.env.CONTENTFORGE_ENABLED === "true";
+}
+
 function normalizeBase(raw: string): string {
 	return raw.trim().replace(/\/+$/, "");
 }

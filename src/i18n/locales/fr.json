@@ -82,6 +82,22 @@
     "emailCta": "Écrire à Story Events",
     "legalPoliciesLink": "Mentions légales et politiques"
   },
+  "ContactForm": {
+    "openCta": "Envoyer un message",
+    "dialogTitle": "Demande de partenariat",
+    "fieldName": "Nom",
+    "fieldEmail": "Email",
+    "fieldMessage": "Message",
+    "messagePlaceholder": "Type d’événement, volumes, niveau de service attendu…",
+    "submit": "Envoyer",
+    "close": "Fermer",
+    "sending": "Envoi en cours…",
+    "success": "Merci ! Votre message a bien été transmis.",
+    "error": "L'envoi a échoué. Réessayez ou écrivez-nous.",
+    "errorNetwork": "Erreur réseau. Vérifiez votre connexion.",
+    "errorConfig": "Le formulaire n’est pas configuré (PUBLIC_CONTACT_FORM_URL ou PUBLIC_CONTACT_FORM_TOKEN manquant).",
+    "emailSubject": "Contact — Story Events"
+  },
   "SiteFooter": {
     "tagline": "Personnel d’exception pour vos réceptions",
     "navAriaLabel": "Mentions légales et politiques",
